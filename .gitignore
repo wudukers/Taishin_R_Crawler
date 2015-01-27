@@ -1,0 +1,9 @@
+### OS Generated files ###
+.DS_Store
+
+### DATA ###
+*.csv
+
+### Cached files ###
+.cache
+.nojekyll
