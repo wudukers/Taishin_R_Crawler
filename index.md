@@ -126,16 +126,17 @@ MOPS_URL.TWSE_ALL <-
 web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
 data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
 names(data) <- 
-  c("Application Date", "Code", "Chairman", "Amount of Capital", "Underwriter")
+  c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
+    "Underwriter")
 data <- data[-1,]
 head(data, n=3)
 ```
 
 ```
-##   Application Date Code   Chairman Amount of Capital Underwriter NA
-## 2       2014.10.16 3416    WinMate                       610,664   
-## 3       2014.10.07 8341         SF                     1,000,000   
-## 4       2014.09.25 1558 ZENG HSING                       605,526
+##   Application Date Code    Company Chairman Amount of Capital Underwriter
+## 2       2014.10.16 3416    WinMate                    610,664            
+## 3       2014.10.07 8341         SF                  1,000,000            
+## 4       2014.09.25 1558 ZENG HSING                    605,526
 ```
 
 <p class="fragment">

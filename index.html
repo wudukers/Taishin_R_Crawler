@@ -125,15 +125,16 @@
 web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding=&quot;big5&quot;)
 data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
 names(data) &lt;- 
-  c(&quot;Application Date&quot;, &quot;Code&quot;, &quot;Chairman&quot;, &quot;Amount of Capital&quot;, &quot;Underwriter&quot;)
+  c(&quot;Application Date&quot;, &quot;Code&quot;, &quot;Company&quot;, &quot;Chairman&quot;,&quot;Amount of Capital&quot;,
+    &quot;Underwriter&quot;)
 data &lt;- data[-1,]
 head(data, n=3)
 </code></pre>
 
-<pre><code>##   Application Date Code   Chairman Amount of Capital Underwriter NA
-## 2       2014.10.16 3416    WinMate                       610,664   
-## 3       2014.10.07 8341         SF                     1,000,000   
-## 4       2014.09.25 1558 ZENG HSING                       605,526
+<pre><code>##   Application Date Code    Company Chairman Amount of Capital Underwriter
+## 2       2014.10.16 3416    WinMate                    610,664            
+## 3       2014.10.07 8341         SF                  1,000,000            
+## 4       2014.09.25 1558 ZENG HSING                    605,526
 </code></pre>
 
 <p class="fragment">
