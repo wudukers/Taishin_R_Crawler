@@ -1,5 +1,5 @@
 ---
-title       : R Basic with Web Crawler.
+title       : R Basic with Web Crawler
 subtitle    : Week 1
 author      : Chia-Chi Chang, Yin-Chen Liao
 framework   : revealjs        # {io2012, html5slides, shower, dzslides, ...}
@@ -8,17 +8,31 @@ hitheme     : tomorrow      #
 widgets     : [mathjax, bootstrap]  # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
+
+---
+
+<h1>
+  <font color=#005CE6>R Basic with Web Crawler</font>
+</h1>
+<h3>
+  <font color="green">Week 1</font>
+</h3>
+<h3>
+  <font color='wheat'>Chia-Chi Chang, Yin-Chen Liao</font>
+</h3>
+
 ---
 
 # Packages
 
-R 是個開源免費的軟體。
+<div align='left'>
+<p>R 是個開源免費的軟體。</p>
 
-有非常多人 (駭客們) 幫它撰寫各式各樣的套件。
+<p>有非常多人 (駭客們) 幫它撰寫各式各樣的套件。</p>
 
-我們要去哪裡看說 R 有什麼套件呢?
+<p>我們要去哪裡看說 R 有什麼套件呢?</p>
 
-主要有兩大管道:
+<p class='fragment'>主要有兩大管道:</p>
 <ul>
   <li class='fragment'><a href='http://cran.r-project.org/'>CRAN</a></li>
   <li class='fragment'><a href='https://github.com/'>Github</a></li>
@@ -26,6 +40,7 @@ R 是個開源免費的軟體。
 <p class='fragment'>
 <font size=8 color="yellow">到底我們該怎麼使用這些套件呢 =  =?</font>
 </p>
+</div>
 
 ---
 
@@ -49,7 +64,7 @@ install.packages("XML")
 
 ---
 
-# Packages
+## Packages
 
 - 很好! 你已經成功安裝 XML 套件了。
 - 為了把包含在 XML 這個套件中的相關函數"引入"供你差遣，我們需要 library() 這個函數。
@@ -201,12 +216,12 @@ head(data, n=3)
 
 ---
 
-## 瀏覽之HTML
+## 瀏覽器之HTML
 
 - HTML 是 Hyper Text Markup Language 的縮寫。
 - 以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。
 - 所謂的一個 tag ，指的是一組 <>...</>。 (有些 tag 只有一個 <>)
-- 有層狀結構。(DOM tree)
+- 有樹狀結構。(DOM tree)
 - 瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。
 
 ---

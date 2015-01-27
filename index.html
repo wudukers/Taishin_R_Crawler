@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>R Basic with Web Crawler.</title>
+  <title>R Basic with Web Crawler</title>
   <meta name="description" content="">
   <meta name="author" content="Chia-Chi Chang, Yin-Chen Liao">
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -20,25 +20,41 @@
   <div class="reveal">
     <div class="slides">
       <section class='' data-state='' id='slide-1'>
+  
+  <h1>
+  <font color=#005CE6>R Basic with Web Crawler</font>
+</h1>
+
+<h3>
+  <font color="green">Week 1</font>
+</h3>
+
+<h3>
+  <font color='wheat'>Chia-Chi Chang, Yin-Chen Liao</font>
+</h3>
+
+</section>
+<section class='' data-state='' id='slide-2'>
   <h1>Packages</h1>
-  <p>R 是個開源免費的軟體。</p>
+  <div align='left'>
+<p>R 是個開源免費的軟體。</p>
 
 <p>有非常多人 (駭客們) 幫它撰寫各式各樣的套件。</p>
 
 <p>我們要去哪裡看說 R 有什麼套件呢?</p>
 
-<p>主要有兩大管道:
+<p class='fragment'>主要有兩大管道:</p>
 <ul>
   <li class='fragment'><a href='http://cran.r-project.org/'>CRAN</a></li>
   <li class='fragment'><a href='https://github.com/'>Github</a></li>
-<ul></p>
-
+<ul>
 <p class='fragment'>
 <font size=8 color="yellow">到底我們該怎麼使用這些套件呢 =  =?</font>
 </p>
+</div>
 
 </section>
-<section class='' data-state='' id='slide-2'>
+<section class='' data-state='' id='slide-3'>
   <h2>Packages</h2>
   <p>為了使用這些套件，我們必須先安裝它們。</p>
 
@@ -56,8 +72,8 @@
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-3'>
-  <h1>Packages</h1>
+<section class='' data-state='' id='slide-4'>
+  <h2>Packages</h2>
   <ul>
 <li>很好! 你已經成功安裝 XML 套件了。</li>
 <li>為了把包含在 XML 這個套件中的相關函數&quot;引入&quot;供你差遣，我們需要 library() 這個函數。</li>
@@ -75,7 +91,7 @@
 </div>
 
 </section>
-<section class='' data-state='' id='slide-4'>
+<section class='' data-state='' id='slide-5'>
   <h2>Example: TWSE </br>(臺灣證券交易所)</h2>
   <p><br></p>
 
@@ -86,22 +102,22 @@
 </center></p>
 
 </section>
-<section class='' data-state='' id='slide-5'>
+<section class='' data-state='' id='slide-6'>
   <h2>Example: TWSE (臺灣證券交易所)</h2>
   <p><img src="./assets/img/twse_home.png" alt="twse-home"></p>
 
 </section>
-<section class='' data-state='' id='slide-6'>
+<section class='' data-state='' id='slide-7'>
   <h2>Example: TWSE (臺灣證券交易所)</h2>
   <p><img src="./assets/img/twse_domestic.png" alt="twse-domestic"></p>
 
 </section>
-<section class='' data-state='' id='slide-7'>
+<section class='' data-state='' id='slide-8'>
   <h2>Example: TWSE (臺灣證券交易所)</h2>
   <p><img src="./assets/img/twse_data2.png" alt="twse-data"></p>
 
 </section>
-<section class='' data-state='' id='slide-8'>
+<section class='' data-state='' id='slide-9'>
   <h2>Example: TWSE (臺灣證券交易所)</h2>
   <pre><code class="r">MOPS_URL.TWSE_ALL &lt;-
   &quot;http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1&quot;
@@ -125,7 +141,7 @@ head(data, n=3)
 </p>
 
 </section>
-<section class='' data-state='' id='slide-9'>
+<section class='' data-state='' id='slide-10'>
   <h1>Your Turn!</h1>
   <ul class = "build incremental">
 <li>平常上班不能上網亂看東西，今天可以!</li>
@@ -136,7 +152,7 @@ head(data, n=3)
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-10'>
+<section class='' data-state='' id='slide-11'>
   
   <h1>爬蟲心法
   <h2>
@@ -145,7 +161,7 @@ head(data, n=3)
 </h1>
 
 </section>
-<section class='' data-state='' id='slide-11'>
+<section class='' data-state='' id='slide-12'>
   <h2>爬蟲心法：模仿你的瀏覽器</h2>
   <ul>
  <li>基本上來說，寫爬蟲就是寫程式去模仿瀏覽器的行為。</li>
@@ -160,14 +176,14 @@ head(data, n=3)
 </p>
 
 </section>
-<section class='' data-state='' id='slide-12'>
+<section class='' data-state='' id='slide-13'>
   
   <h1>爬蟲小幫手
   <h2><font color="yellow">GUI 小道具</font></h2>
 </h1>
 
 </section>
-<section class='' data-state='' id='slide-13'>
+<section class='' data-state='' id='slide-14'>
   <h2>爬蟲小幫手: GUI 小道具</h2>
   <ul>
 <li>開發人員工具 in Chrome &amp; Firfox
@@ -179,39 +195,39 @@ head(data, n=3)
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-14'>
+<section class='' data-state='' id='slide-15'>
   <h2>爬蟲小幫手: GUI 小道具</h2>
   <p><img src="./assets/img/dev_shell.png" alt="dev_shell"></p>
 
 </section>
-<section class='' data-state='' id='slide-15'>
+<section class='' data-state='' id='slide-16'>
   <h2>爬蟲小幫手: GUI 小道具</h2>
   <ul>
 <li>Postman (Chrome Plug-in)</li>
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-16'>
+<section class='' data-state='' id='slide-17'>
   <h2>爬蟲小幫手: GUI 小道具</h2>
   <p><img src="./assets/img/postman.png" alt="postman"></p>
 
 </section>
-<section class='' data-state='' id='slide-17'>
+<section class='' data-state='' id='slide-18'>
   <h1>瀏覽器之<font color="yellow">HTML</font></h1>
   
 </section>
-<section class='' data-state='' id='slide-18'>
-  <h2>瀏覽之HTML</h2>
+<section class='' data-state='' id='slide-19'>
+  <h2>瀏覽器之HTML</h2>
   <ul>
 <li>HTML 是 Hyper Text Markup Language 的縮寫。</li>
 <li>以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。</li>
 <li>所謂的一個 tag ，指的是一組 &lt;&gt;...&lt;/&gt;。 (有些 tag 只有一個 &lt;&gt;)</li>
-<li>有層狀結構。(DOM tree)</li>
+<li>有樹狀結構。(DOM tree)</li>
 <li>瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。</li>
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-19'>
+<section class='' data-state='' id='slide-20'>
   <h1>Excersice:</h1>
   <ul>
 <li>用 Chrome 或 Firefox 的開發人員工具，把剛剛你找到的那些網頁的 html 檔案打開看看。</li>
