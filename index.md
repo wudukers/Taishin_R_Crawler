@@ -2,7 +2,7 @@
 title       : R Basic with Web Crawler.
 subtitle    : Week 1
 author      : Chia-Chi Chang, Yin-Chen Liao
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+framework   : revealjs        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax, bootstrap]  # {mathjax, quiz, bootstrap}
@@ -12,30 +12,24 @@ knit        : slidify::knit2slides
 
 # Packages
 
-R 是個開源免費的軟體，因此有非常多人 (駭客們) 幫它撰寫各式各樣的套件。
+R 是個開源免費的軟體。
+
+有非常多人 (駭客們) 幫它撰寫各式各樣的套件。
 
 我們要去哪裡看說 R 有什麼套件呢?
 
 主要有兩大管道:
-
-- [CRAN](http://cran.r-project.org/)
-- [Github](https://github.com/)
-
-> - 那不就好棒棒 (拍手) .... 
-> - 到底我們該怎麼使用這些套件呢 =  =?
-
----
-
-# Packages
-
-為了使用這些套件，我們必須先安裝它們。
-
-> - 在 R 裡安裝套件也非常簡單
-> - 以接下來爬蟲例子中會需要的 XML 套件為例。
+<ul>
+  <li class='fragment'><a href='http://cran.r-project.org/'>CRAN</a></li>
+  <li class='fragment'><a href='https://github.com/'>Github</a></li>
+<ul>
+<p class='fragment'>
+<font size=8 color="yellow">到底我們該怎麼使用這些套件呢 =  =?</font>
+</p>
 
 ---
 
-# Packages
+## Packages
 
 為了使用這些套件，我們必須先安裝它們。
 
@@ -57,17 +51,9 @@ install.packages("XML")
 
 # Packages
 
-> - 很好! 你已經成功安裝 XML 套件了。
-
-> - 為了把包含在 XML 這個套件中的相關函數"引入"供你差遣(?)，我們需要 library() 這個函數。
-
----
-
-# Packages
-
 - 很好! 你已經成功安裝 XML 套件了。
-<br>
-- 為了把包含在 XML 這個套件中的相關函數"引入"供你差遣(?)，我們需要 library() 這個函數。
+- 為了把包含在 XML 這個套件中的相關函數"引入"供你差遣，我們需要 library() 這個函數。
+
 
 
 ```r
@@ -78,58 +64,54 @@ library("XML")
 ## Warning: package 'XML' was built under R version 3.1.2
 ```
 
-> - That's it! You are ready for building simple web-crawler now.
-> - 眼見為憑，我們用一個小例子示範一下。
+<div align='left'>
+<p class='fragment'>That's it! You are ready for building simple web-crawler now.</p>
+<p class='fragment'>眼見為憑，我們用一個小例子示範一下。</p>
+</div>
 
 ---
 
-# Example: TWSE (臺灣證券交易所)
+<h2>Example: TWSE </br>(臺灣證券交易所)</h2>
 
-<br>
-<br>
 <br>
 
 <center>
 <font size=8>
-  This way to <a href='http://www.twse.com.tw/en/'>TWSE</a>
+  <p class='fragment'>This way to <a href='http://www.twse.com.tw/en/'>TWSE</a></p>
 </font>
 </center>
 
 ---
 
-# Example: TWSE (臺灣證券交易所)
+## Example: TWSE (臺灣證券交易所)
 
 ![twse-home](./assets/img/twse_home.png)
 
 ---
 
-# Example: TWSE (臺灣證券交易所)
+## Example: TWSE (臺灣證券交易所)
 
 ![twse-domestic](./assets/img/twse_domestic.png)
 
 ---
 
-# Example: TWSE (臺灣證券交易所)
+## Example: TWSE (臺灣證券交易所)
 
-![twse-data](./assets/img/twse_data1.png)
-
----
-
-# Example: TWSE (臺灣證券交易所)
-
-![twse-data2](./assets/img/twse_data2.png)
+![twse-data](./assets/img/twse_data2.png)
 
 ---
 
-# Example: TWSE (臺灣證券交易所)
+## Example: TWSE (臺灣證券交易所)
 
 
 ```r
-MOPS_URL.TWSE_ALL = "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
+MOPS_URL.TWSE_ALL <-
+  "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
 
 web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
 data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
-names(data) <- c("Application Date", "Code", "Chairman", "Amount of Capital", "Underwriter")
+names(data) <- 
+  c("Application Date", "Code", "Chairman", "Amount of Capital", "Underwriter")
 data <- data[-1,]
 head(data, n=3)
 ```
@@ -141,31 +123,9 @@ head(data, n=3)
 ## 4       2014.09.25 1558 ZENG HSING                       605,526
 ```
 
----
-
-# Example: TWSE (臺灣證券交易所)
-
-
-```r
-MOPS_URL.TWSE_ALL = "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
-
-web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
-data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
-names(data) <- c("Application Date", "Code", "Chairman", "Amount of Capital", "Underwriter")
-data <- data[-1,]
-head(data, n=3)
-```
-
-```
-##   Application Date Code   Chairman Amount of Capital Underwriter NA
-## 2       2014.10.16 3416    WinMate                       610,664   
-## 3       2014.10.07 8341         SF                     1,000,000   
-## 4       2014.09.25 1558 ZENG HSING                       605,526
-```
-
-<font size=6 color='red'>
-  Magic!!
-</font>
+<p class="fragment">
+<font color='red' size="8">Magic!</font>
+</p>
 
 ---
 
@@ -179,36 +139,37 @@ head(data, n=3)
 
 ---
 
-# 爬蟲心法：模仿你的瀏覽器
-
-> - 基本上來說，寫爬蟲就是寫程式去模仿瀏覽器的行為。
-> - 把你想要的資料從瀏覽器讀到的資料中取出來，就是一隻基本的爬蟲。
-> - 那到底瀏覽器讀到了什麼資料啊??
-> - Chrome 與 Firfox 是你的好朋友。
-
----
-
-# 爬蟲心法：模仿你的瀏覽器
-
-- 基本上來說，寫爬蟲就是寫程式去模仿瀏覽器的行為。
-- 把你想要的資料從瀏覽器讀到的資料中取出來，就是一隻基本的爬蟲。
-- 那到底瀏覽器讀到了什麼資料啊??
-- Chrome 與 Firfox 是你的好朋友。
-- IE 咧?
+<h1>爬蟲心法
+  <h2>
+  <font color="yellow">模仿你的瀏覽器</font>
+  </h2>  
+</h1>
 
 ---
 
-# 爬蟲心法：模仿你的瀏覽器
+## 爬蟲心法：模仿你的瀏覽器
 
-- 基本上來說，寫爬蟲就是寫程式去模仿瀏覽器的行為。
-- 把你想要的資料從瀏覽器讀到的資料中取出來，就是一隻基本的爬蟲。
-- 那到底瀏覽器讀到了什麼資料啊??
-- Chrome 與 Firfox 是你的好朋友。
-- IE 咧?.....不要問，很可怕。
+<ul>
+ <li>基本上來說，寫爬蟲就是寫程式去模仿瀏覽器的行為。</li>
+ <li>把你想要的資料從瀏覽器讀到的資料中取出來，就是一隻基本的爬蟲。</li>
+ <li>那到底瀏覽器讀到了什麼資料啊??</li>
+ <li>Chrome 與 Firfox 是你的好朋友。</li>
+ <li class='fragment'>IE 咧?</li>
+</ul>
+
+<p class="fragment">
+<font size=8 color='red'>不要問....很可怕 =  =+</font>
+</p>
 
 ---
 
-# 爬蟲小幫手: GUI 小道具
+<h1>爬蟲小幫手
+  <h2><font color="yellow">GUI 小道具</font></h2>
+</h1>
+
+---
+
+## 爬蟲小幫手: GUI 小道具
 
 - 開發人員工具 in Chrome & Firfox
   * Mac: Cmd + Shift + I
@@ -216,27 +177,31 @@ head(data, n=3)
 
 ---
 
-# 爬蟲小幫手: GUI 小道具
+## 爬蟲小幫手: GUI 小道具
 
 ![dev_shell](./assets/img/dev_shell.png)
 
 
 ---
 
-# 爬蟲小幫手: GUI 小道具
+## 爬蟲小幫手: GUI 小道具
 
 - Postman (Chrome Plug-in)
 
 
 ---
 
-# 爬蟲小幫手: GUI 小道具
+## 爬蟲小幫手: GUI 小道具
 
 ![postman](./assets/img/postman.png)
 
 ---
 
-# 瀏覽器看到的資料: HTML
+<h1>瀏覽器之<font color="yellow">HTML</font></h1>
+
+---
+
+## 瀏覽之HTML
 
 - HTML 是 Hyper Text Markup Language 的縮寫。
 - 以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。
