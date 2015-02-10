@@ -13,6 +13,7 @@
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->  <link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "assets/css/custom.css">
 <link rel="stylesheet" href = "assets/css/ribbons.css">
 
 </head>
@@ -30,13 +31,14 @@
 </h3>
 
 <h3>
-  <font color='wheat'>Chia-Chi Chang, Yin-Chen Liao</font>
+  <font color=#CCCCA3>Chia-Chi Chang, Yin-Chen Liao</font>
 </h3>
 
 </section>
-<section class='' data-state='' id='slide-2'>
-  <h1>Packages</h1>
-  <div align='left'>
+<section>
+   <section class='' data-state=''>
+    <h1>Packages</h1>
+    <div align='left'>
 <p>R 是個開源免費的軟體。</p>
 
 <p>有非常多人 (駭客們) 幫它撰寫各式各樣的套件。</p>
@@ -48,15 +50,20 @@
   <li class='fragment'><a href='http://cran.r-project.org/'>CRAN</a></li>
   <li class='fragment'><a href='https://github.com/'>Github</a></li>
 <ul>
+<br>
 <p class='fragment'>
 <font size=8 color="yellow">到底我們該怎麼使用這些套件呢 =  =?</font>
 </p>
 </div>
 
-</section>
-<section class='' data-state='' id='slide-3'>
-  <h2>Packages</h2>
-  <p>為了使用這些套件，我們必須先安裝它們。</p>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Packages</h2>
+
+<p>為了使用這些套件，我們必須先安裝它們。</p>
 
 <ul>
 <li>在 R 裡安裝套件也非常簡單</li>
@@ -71,10 +78,14 @@
 ##  /var/folders/5c/0p5zr2_n4xvbt2j6hkqczhph0000gn/T//Rtmpf9Hxhx/downloaded_packages
 </code></pre>
 
-</section>
-<section class='' data-state='' id='slide-4'>
-  <h2>Packages</h2>
-  <ul>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Packages</h2>
+
+<ul>
 <li>很好! 你已經成功安裝 XML 套件了。</li>
 <li>為了把包含在 XML 這個套件中的相關函數&quot;引入&quot;供你差遣，我們需要 library() 這個函數。</li>
 </ul>
@@ -90,10 +101,15 @@
 <p class='fragment'>眼見為憑，我們用一個小例子示範一下。</p>
 </div>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
-<section class='' data-state='' id='slide-5'>
-  <h2>Example: TWSE </br>(臺灣證券交易所)</h2>
-  <p><br></p>
+<section>
+   <section class='' data-state=''>
+    <h2>Example: TWSE </br>(臺灣證券交易所)</h2>
+    <p><br></p>
 
 <p><center>
 <font size=8>
@@ -101,25 +117,37 @@
 </font>
 </center></p>
 
-</section>
-<section class='' data-state='' id='slide-6'>
-  <h2>Example: TWSE (臺灣證券交易所)</h2>
-  <p><img src="./assets/img/twse_home.png" alt="twse-home"></p>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>TWSE 英文首頁</h2>
 
-</section>
-<section class='' data-state='' id='slide-7'>
-  <h2>Example: TWSE (臺灣證券交易所)</h2>
-  <p><img src="./assets/img/twse_domestic.png" alt="twse-domestic"></p>
+<p><img src="./assets/img/twse_home.png" alt="twse-home"></p>
 
-</section>
-<section class='' data-state='' id='slide-8'>
-  <h2>Example: TWSE (臺灣證券交易所)</h2>
-  <p><img src="./assets/img/twse_data2.png" alt="twse-data"></p>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><img src="./assets/img/twse_domestic.png" alt="twse-domestic"></p>
 
-</section>
-<section class='' data-state='' id='slide-9'>
-  <h2>Example: TWSE (臺灣證券交易所)</h2>
-  <pre><code class="r">MOPS_URL.TWSE_ALL &lt;-
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><img src="./assets/img/twse_data2.png" alt="twse-data"></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>The Code</h2>
+
+<pre><code class="r">MOPS_URL.TWSE_ALL &lt;-
   &quot;http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1&quot;
 
 web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding=&quot;big5&quot;)
@@ -141,30 +169,40 @@ head(data, n=3)
 <font color='red' size="8">Magic!</font>
 </p>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
-<section class='' data-state='' id='slide-10'>
+<section class='' data-state='' id='slide-4'>
   <h1>Your Turn!</h1>
-  <ul class = "build incremental">
-<li>平常上班不能上網亂看東西，今天可以!</li>
-<li>找幾個有興趣的網站，並且把有興趣的資料在網站哪裡標註起來。(print screen)</li>
-<li>你想抓的網站有可能是靜態網頁，也可能是動態的。(What!?)</li>
-<li>別緊張，四週課程過去後，你會了解之間的差別，也會知道如何處理它。</li>
-<li>記得把網址都記下來噢!等等會有用。</li>
+  <ul>
+  <li class="fragment">平常上班不能上網亂看東西，今天可以!</li>
+  <li class="fragment">找幾個有興趣的網站，並且把有興趣的資料在網站哪裡標註起來。<br>
+    (print screen)</li>
+  <li class="fragment">你想抓的網站有可能是靜態網頁，也可能是動態的。(What!?)</li>
+  <li class="fragment">別緊張，四週課程過去後，你會了解之間的差別，也會知道如何處理它。</li>
+  <li class="fragment">記得把網址都記下來噢!等等會有用。</li>
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-11'>
-  
-  <h1>爬蟲心法
+<section>
+   <section class='' data-state=''>
+    
+    <h1>爬蟲心法
   <h2>
   <font color="yellow">模仿你的瀏覽器</font>
   </h2>  
 </h1>
 
-</section>
-<section class='' data-state='' id='slide-12'>
-  <h2>爬蟲心法：模仿你的瀏覽器</h2>
-  <ul>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>爬蟲心法：模仿你的瀏覽器</h2>
+
+<ul>
  <li>基本上來說，寫爬蟲就是寫程式去模仿瀏覽器的行為。</li>
  <li>把你想要的資料從瀏覽器讀到的資料中取出來，就是一隻基本的爬蟲。</li>
  <li>那到底瀏覽器讀到了什麼資料啊??</li>
@@ -176,17 +214,26 @@ head(data, n=3)
 <font size=8 color='red'>不要問....很可怕 =  =+</font>
 </p>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
-<section class='' data-state='' id='slide-13'>
-  
-  <h1>爬蟲小幫手
+<section>
+   <section class='' data-state=''>
+    
+    <h1>爬蟲小幫手
   <h2><font color="yellow">GUI 小道具</font></h2>
 </h1>
 
-</section>
-<section class='' data-state='' id='slide-14'>
-  <h2>爬蟲小幫手: GUI 小道具</h2>
-  <ul>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>爬蟲小幫手: GUI 小道具</h2>
+
+<ul>
 <li>開發人員工具 in Chrome &amp; Firfox
 
 <ul>
@@ -195,31 +242,53 @@ head(data, n=3)
 </ul></li>
 </ul>
 
-</section>
-<section class='' data-state='' id='slide-15'>
-  <h2>爬蟲小幫手: GUI 小道具</h2>
-  <p><img src="./assets/img/dev_shell.png" alt="dev_shell"></p>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><img src="./assets/img/dev_shell.png" alt="dev_shell"></p>
 
-</section>
-<section class='' data-state='' id='slide-16'>
-  <h2>爬蟲小幫手: GUI 小道具</h2>
-  <ul>
-<li>Postman (Chrome Plug-in)</li>
-</ul>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+  <li>
+    Postman (Chrome Plug-in)
+      <ul>
+        <li class='fragment'>簡單的圖形介面讓你可以對伺服器發 request。</li>
+        <li class='fragment'>不懂啥是 request? 沒關係，等等會解釋。</li>
+        <li class='fragment'>先偷看一下它長什麼樣子就好。</li>
+      </ul>
+  </li>
+</ul>  
 
-</section>
-<section class='' data-state='' id='slide-17'>
-  <h2>爬蟲小幫手: GUI 小道具</h2>
-  <p><img src="./assets/img/postman.png" alt="postman"></p>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><img src="./assets/img/postman.png" alt="postman"></p>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
-<section class='' data-state='' id='slide-18'>
-  <h1>瀏覽器之<font color="yellow">HTML</font></h1>
-  
-</section>
-<section class='' data-state='' id='slide-19'>
-  <h2>瀏覽器之HTML</h2>
-  <ul>
+<section>
+   <section class='' data-state=''>
+    <h1>瀏覽器之<font color="yellow">HTML</font></h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>瀏覽器之HTML</h2>
+
+<ul>
 <li>HTML 是 Hyper Text Markup Language 的縮寫。</li>
 <li>以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。</li>
 <li>所謂的一個 tag ，指的是一組 &lt;&gt;...&lt;/&gt;。 (有些 tag 只有一個 &lt;&gt;)</li>
@@ -227,14 +296,247 @@ head(data, n=3)
 <li>瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。</li>
 </ul>
 
-</section>
-<section class='' data-state='' id='slide-20'>
-  <h1>Excersice:</h1>
-  <ul>
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Example: DOM tree</h2>
+
+<p><img src="./assets/img/DOMTree.png" alt="dom_tree"></p>
+
+<p><a href="http://www.openbookproject.net/tutorials/getdown/css/lesson4.html">圖片來源</a></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>DOM tree: The Code</h2>
+
+<pre><code>    &lt;html&gt;
+      &lt;head&gt;
+        &lt;meta&gt;&lt;/meta&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;&lt;/h1&gt;
+        &lt;section&gt;&lt;/section&gt;
+        &lt;footer&gt;&lt;/footer&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h1>Excersice:</h1>
+
+<ul>
 <li>用 Chrome 或 Firefox 的開發人員工具，把剛剛你找到的那些網頁的 html 檔案打開看看。</li>
 <li>找看看你有興趣的資料在這些 html 檔案中的哪裡?</li>
 </ul>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>HTTP</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>What is HTTP?</h2>
+
+<div align='left'>
+<ul>
+<li class='fragment'>HTTP 是 "Hypertext Transfer Protocol" 的縮寫。</li>
+</ul>
+</div>
+
+<div class='fragment'>
+<font color='yellow'>
+  有說等於沒說....=   =
+</font>
+</div>
+
+<ul>
+<li class="fragment">HTTP 是一種通訊協定，規定好客戶端 (client) 要如何跟伺服器端 (server) 做溝通。</li>
+<li class='fragment'>簡而言之，HTTP 之於網路，就如同文法之於英文。</li>
+<li class='fragment'>粗略來分，可以分為 POST、GET、PUT、DELETE ....等。</li>
+</ul>
+
+<div class="fragment" align='left'>
+  其中寫爬蟲最常用的，就是 GET 與 POST 這兩種方法。
+<br>
+
+<ul>
+  <li class='fragment'>更詳盡的資料可以參考<a href='http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol'> Wiki </a>上的說明。</li>
+</ul>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>GET</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>忙碌的瀏覽器</h2>
+
+<div class='fragment'>
+打從我們打開一個網頁開始，瀏覽器就沒有停止工作過。
+</div>
+
+<div class='fragment'>我們先來看看瀏覽器做了些什麼事。</div>
+
+<div class='fragment'>
+<font color='blue'>
+  Chrome 開發人員工具
+</font>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Network</h2>
+
+<p><img src="./assets/img/network.png" alt="network"></p>
+
+<div class='fragment'>
+<font color='red' size='8'>
+  滿坑滿谷的 GET 啊!
+</font>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+  <li>瀏覽器在我們打開這個網頁的時候，會幫我們下載了這個網頁所有需要的圖片、聲音與資料。</li>
+  <li class='fragment'>等檔案下載好後，再排版成我們肉眼看到的網頁。</li>
+  <li class='fragment'>
+    <font color='yellow'>
+      瀏覽器 OS: 我把資料都藏在這裡了，想要的人就去拿吧!
+    </font>
+  </li>
+  <li class='fragment'>在我們登上偉大的航道前，再多觀察一些其他的東西吧。</li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>GET - More Than You Can Imagine</h2>
+
+<ul>
+  <li class='fragment'>URL (網址) 也可能包含了一些額外資訊，讓瀏覽器可以從 server 拿到不一樣的資料。</li>
+  <li class='fragment'>這些資訊可能包含 id 、當前頁數、日期等等資訊。</li>
+  <li class='fragment'>瀏覽一下 TWSE 的網站並觀察它網址的變化吧!</li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>常見的 URL 形態：</p>
+
+<div align='left'>
+  <ol>
+    <li class='fragment'>
+      <font color='wheat'>
+      domain_name/path/to/specific/page
+      </font>
+    </li>
+    <li class='fragment'>
+
+      ../../..<font color='#E6E6B8'>?</font><font color='#FF9933'>field1</font><font color='#8DE28D'>=</font><font color='#9DDEFF'>value1</font><font color='#E6E6B8'>&</font><font color='#FF9933'>field2</font><font color='#8DE28D'>=</font><font color='#9DDEFF'>value2</font><font color='#E6E6B8'>&</font><font color='#FF9933'>field3</font><font color='#8DE28D'>=</font><font color='#9DDEFF'>value3</font>
+    </li>
+  </ol>
+  <br>
+  <br>
+  <div class='fragment'>
+  <font>
+    上述兩種 URL 再 <a href="http://www.twse.com.tw/en/">TWSE</a> 的網站上都找得到。
+  </font>
+  </div>
+  <br>
+  <div class='fragment'>
+  <font>
+    舉例來說，我們現在瀏覽的是英文界面，如果想瀏覽中文的呢? 它們的 URL 有什麼變化？
+  </font>
+  </div>
+</div>
+
+<p><br>
+<br></p>
+
+<p class='fragment'>
+<font color='red'>
+  Try it!
+</font>
+</p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>POST</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>GET / POST Request by PostMan</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Parsor</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>R Code - Review</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>Homework</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
     </div>
   </div>
@@ -250,7 +552,7 @@ head(data, n=3)
     history: true,
     center: true,
     theme: Reveal.getQueryHash().theme || 'default', 
-    transition: Reveal.getQueryHash().transition || 'default', 
+    transition: Reveal.getQueryHash().transition || 'slides', 
     dependencies: [
     // Cross-browser shim that fully implements classList -
     // https://github.com/eligrey/classList.js/

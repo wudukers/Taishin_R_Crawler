@@ -7,3 +7,4 @@
 ### Cached files ###
 .cache
 .nojekyll
+.Rhistory
