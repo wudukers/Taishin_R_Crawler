@@ -476,6 +476,10 @@ head(data, n=3)
 
 ***
 
+![](./assets/img/spider_structure.png)
+
+***
+
 ## R Code - Review
 
 
