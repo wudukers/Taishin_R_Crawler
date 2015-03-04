@@ -173,10 +173,10 @@ head(data, n=3)
       
     </aside>
    </section>
-</section>
-<section class='' data-state='' id='slide-4'>
-  <h1>Your Turn!</h1>
-  <ul>
+   <section class='' data-state=''>
+    <h1>Your Turn!</h1>
+
+<ul>
   <li class="fragment">平常上班不能上網亂看東西，今天可以!</li>
   <li class="fragment">找幾個有興趣的網站，並且把有興趣的資料在網站哪裡標註起來。<br>
     (print screen)</li>
@@ -185,6 +185,10 @@ head(data, n=3)
   <li class="fragment">記得把網址都記下來噢!等等會有用。</li>
 </ul>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
 <section>
    <section class='' data-state=''>
@@ -279,74 +283,6 @@ head(data, n=3)
 </section>
 <section>
    <section class='' data-state=''>
-    <h1>瀏覽器之<font color="yellow">HTML</font></h1>
-    
-    <aside class='notes'>
-      
-    </aside>
-   </section>
-   <section class='' data-state=''>
-    <h2>瀏覽器之HTML</h2>
-
-<ul>
-<li>HTML 是 Hyper Text Markup Language 的縮寫。</li>
-<li>以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。</li>
-<li>所謂的一個 tag ，指的是一組 &lt;&gt;...&lt;/&gt;。 (有些 tag 只有一個 &lt;&gt;)</li>
-<li>有樹狀結構。(DOM tree)</li>
-<li>瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。</li>
-</ul>
-
-    <aside class='notes'>
-      
-    </aside>
-   </section>
-   <section class='' data-state=''>
-    <h2>Example: DOM tree</h2>
-
-<p><img src="./assets/img/DOMTree.png" alt="dom_tree"></p>
-
-<p><a href="http://www.openbookproject.net/tutorials/getdown/css/lesson4.html">圖片來源</a></p>
-
-    <aside class='notes'>
-      
-    </aside>
-   </section>
-   <section class='' data-state=''>
-    <h2>DOM tree: The Code</h2>
-
-<pre><code>    &lt;html&gt;
-      &lt;head&gt;
-        &lt;meta&gt;&lt;/meta&gt;
-        &lt;title&gt;&lt;/title&gt;
-        &lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
-      &lt;/head&gt;
-      &lt;body&gt;
-        &lt;h1&gt;&lt;/h1&gt;
-        &lt;section&gt;&lt;/section&gt;
-        &lt;footer&gt;&lt;/footer&gt;
-      &lt;/body&gt;
-    &lt;/html&gt;
-</code></pre>
-
-    <aside class='notes'>
-      
-    </aside>
-   </section>
-   <section class='' data-state=''>
-    <h1>Excersice:</h1>
-
-<ul>
-<li>用 Chrome 或 Firefox 的開發人員工具，把剛剛你找到的那些網頁的 html 檔案打開看看。</li>
-<li>找看看你有興趣的資料在這些 html 檔案中的哪裡?</li>
-</ul>
-
-    <aside class='notes'>
-      
-    </aside>
-   </section>
-</section>
-<section>
-   <section class='' data-state=''>
     <h1>HTTP</h1>
     
     <aside class='notes'>
@@ -387,9 +323,11 @@ head(data, n=3)
       
     </aside>
    </section>
+</section>
+<section>
    <section class='' data-state=''>
-    <h2>GET</h2>
-
+    <h1>GET METHOD</h1>
+    
     <aside class='notes'>
       
     </aside>
@@ -501,21 +439,205 @@ head(data, n=3)
     </aside>
    </section>
    <section class='' data-state=''>
-    <h2>POST</h2>
+    <h2>What Can We &quot;Get&quot;?</h2>
 
     <aside class='notes'>
       
     </aside>
    </section>
    <section class='' data-state=''>
-    <h2>GET / POST Request by PostMan</h2>
+    <p>常見的資料形態:</p>
+
+<ul>
+  <li class="fragment">HTML/XML text</li>
+  <li class='fragment'>Files. (csv, tsv...etc)</li>
+  <li class='fragment'>JSON</li>
+</ul>
+
+<div class='fragment'>來看看它們長啥樣子吧!</div>
 
     <aside class='notes'>
       
     </aside>
    </section>
    <section class='' data-state=''>
-    <h2>Parsor</h2>
+    <h2>瀏覽器之<font color="yellow">HTML</font></h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>瀏覽器之HTML</h2>
+
+<ul>
+<li>HTML 是 Hyper Text Markup Language 的縮寫。</li>
+<li>以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。</li>
+<li>所謂的一個 tag ，指的是一組 &lt;&gt;...&lt;/&gt;。 (有些 tag 只有一個 &lt;&gt;)</li>
+<li>有樹狀結構。(DOM tree)</li>
+<li>瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。</li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Example: DOM tree</h2>
+
+<p><img src="./assets/img/DOMTree.png" alt="dom_tree"></p>
+
+<p><a href="http://www.openbookproject.net/tutorials/getdown/css/lesson4.html">圖片來源</a></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>DOM tree: The Code</h2>
+
+<pre><code>    &lt;html&gt;
+      &lt;head&gt;
+        &lt;meta&gt;&lt;/meta&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;&lt;/h1&gt;
+        &lt;section&gt;&lt;/section&gt;
+        &lt;footer&gt;&lt;/footer&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h3>Excersice:</h3>
+
+<ul>
+<li>用 Chrome 或 Firefox 的開發人員工具，把剛剛你找到的那些網頁的 html 檔案打開看看。</li>
+<li>找看看你有興趣的資料在這些 html 檔案中的哪裡?</li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Files</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><a href="http://www.twse.com.tw/en/trading/exchange/MI_INDEX/genpage/Report201503/A11220150304MS.php?select2=MS&chk_date=2015/03/04#">
+  Market Info &gt; Historical Trading Info/Data &gt;Daily Quotes
+</a>
+<img src="./assets/img/twse_files.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>JSON</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>以 PChome 網路商城為例</p>
+
+<p><img src="./assets/img/pchome_json.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>破解後台</p>
+
+<p><img src="assets/img/pchome_backend.png" alt=""></p>
+
+<p><a href="http://ecapi.pchome.com.tw/ecshop/prodapi/v2/prod/DRAH2G-A9005M2RZ-000&amp;fields=Seq,Id,Name,Nick,Store,PreOrdDate,SpeOrdDate,Price,Discount,Pic,Weight,ISBN,Qty,Bonus,isBig,isSpec,isCombine,isDiy,isRecyclable,isCarrier,isMedical,isBigCart,isSnapUp,isDescAndIntroSync&amp;_callback=_">後台抵家</a></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>以這個後台的 URL 來說，你可以猜到它代表的意義嗎?</p>
+
+<div class='fragment'>想想看</div>
+
+<ul>
+  <li class='fragment'>什麼是 fields ?</li>
+  <li class='fragment'>'fields=' 後面的東西又是什麼?</li>
+  <li class='fragment'>如果我不想要商家的名字，要怎麼做呢?</li>
+</ul>
+
+<p><br>
+<br></p>
+
+<p class='fragment'>
+  <font color='red'>
+    在 Ajax 技術一章會有進一步的介紹。
+  </font>
+</p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>GET Request by PostMan</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>用 PostMan 把這個 csv 下載下來!
+<img src="./assets/img/twse_files.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><img src="./assets/img/twse_postman.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>Parsor for Files</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>The Basic Components of a WebSpider</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><img src="./assets/img/spider_structure.png" alt=""></p>
 
     <aside class='notes'>
       
@@ -524,6 +646,33 @@ head(data, n=3)
    <section class='' data-state=''>
     <h2>R Code - Review</h2>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <pre><code class="r">rm(list=ls())
+MOPS_URL.TWSE_ALL &lt;-
+  &quot;http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1&quot;
+
+web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding=&quot;big5&quot;)
+data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+names(data) &lt;- 
+  c(&quot;Application Date&quot;, &quot;Code&quot;, &quot;Company&quot;, &quot;Chairman&quot;,&quot;Amount of Capital&quot;,
+    &quot;Underwriter&quot;)
+data &lt;- data[-1,]
+head(data, n=3)
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>More About R Basic</h1>
+    
     <aside class='notes'>
       
     </aside>

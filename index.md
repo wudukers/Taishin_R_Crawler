@@ -143,7 +143,7 @@ head(data, n=3)
 <font color='red' size="8">Magic!</font>
 </p>
 
----
+***
 
 # Your Turn!
 
@@ -218,52 +218,6 @@ head(data, n=3)
 
 --- &vertical
 
-<h1>瀏覽器之<font color="yellow">HTML</font></h1>
-
-***
-
-## 瀏覽器之HTML
-
-- HTML 是 Hyper Text Markup Language 的縮寫。
-- 以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。
-- 所謂的一個 tag ，指的是一組 <>...</>。 (有些 tag 只有一個 <>)
-- 有樹狀結構。(DOM tree)
-- 瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。
-
-***
-
-## Example: DOM tree
-
-![dom_tree](./assets/img/DOMTree.png)
-
-<a href="http://www.openbookproject.net/tutorials/getdown/css/lesson4.html">圖片來源</a>
-
-***
-
-## DOM tree: The Code
-
-        <html>
-          <head>
-            <meta></meta>
-            <title></title>
-            <style type="text/css"></style>
-          </head>
-          <body>
-            <h1></h1>
-            <section></section>
-            <footer></footer>
-          </body>
-        </html>
-
-***
-
-# Excersice:
-
-- 用 Chrome 或 Firefox 的開發人員工具，把剛剛你找到的那些網頁的 html 檔案打開看看。
-- 找看看你有興趣的資料在這些 html 檔案中的哪裡?
-
---- &vertical
-
 # HTTP
 
 ***
@@ -297,9 +251,9 @@ head(data, n=3)
 </ul>
 </div>
 
-***
+--- &vertical
 
-## GET
+# GET METHOD
 
 ***
 
@@ -391,19 +345,163 @@ head(data, n=3)
 
 ***
 
-## POST
+## What Can We "Get"?
 
 ***
 
-## GET / POST Request by PostMan
+常見的資料形態:
+
+<ul>
+  <li class="fragment">HTML/XML text</li>
+  <li class='fragment'>Files. (csv, tsv...etc)</li>
+  <li class='fragment'>JSON</li>
+</ul>
+
+<div class='fragment'>來看看它們長啥樣子吧!</div>
 
 ***
 
-## Parsor
+<h2>瀏覽器之<font color="yellow">HTML</font></h2>
 
 ***
 
-## R Code - Review 
+## 瀏覽器之HTML
+
+- HTML 是 Hyper Text Markup Language 的縮寫。
+- 以一個 tag 為基本單位，一般稱一個 tag 為一個 element 。
+- 所謂的一個 tag ，指的是一組 <>...</>。 (有些 tag 只有一個 <>)
+- 有樹狀結構。(DOM tree)
+- 瀏覽器會根據下載到的 html 檔案去排版，成為人肉眼看到的網頁。
+
+***
+
+## Example: DOM tree
+
+![dom_tree](./assets/img/DOMTree.png)
+
+<a href="http://www.openbookproject.net/tutorials/getdown/css/lesson4.html">圖片來源</a>
+
+***
+
+## DOM tree: The Code
+
+        <html>
+          <head>
+            <meta></meta>
+            <title></title>
+            <style type="text/css"></style>
+          </head>
+          <body>
+            <h1></h1>
+            <section></section>
+            <footer></footer>
+          </body>
+        </html>
+
+***
+
+### Excersice:
+
+- 用 Chrome 或 Firefox 的開發人員工具，把剛剛你找到的那些網頁的 html 檔案打開看看。
+- 找看看你有興趣的資料在這些 html 檔案中的哪裡?
+
+***
+
+## Files
+
+***
+
+<a href="http://www.twse.com.tw/en/trading/exchange/MI_INDEX/genpage/Report201503/A11220150304MS.php?select2=MS&chk_date=2015/03/04#">
+  Market Info > Historical Trading Info/Data >Daily Quotes
+</a>
+![](./assets/img/twse_files.png)
+
+***
+
+## JSON
+
+***
+
+以 PChome 網路商城為例
+
+![](./assets/img/pchome_json.png)
+
+
+***
+
+破解後台
+
+![](assets/img/pchome_backend.png)
+
+[後台抵家](http://ecapi.pchome.com.tw/ecshop/prodapi/v2/prod/DRAH2G-A9005M2RZ-000&fields=Seq,Id,Name,Nick,Store,PreOrdDate,SpeOrdDate,Price,Discount,Pic,Weight,ISBN,Qty,Bonus,isBig,isSpec,isCombine,isDiy,isRecyclable,isCarrier,isMedical,isBigCart,isSnapUp,isDescAndIntroSync&_callback=_)
+
+***
+
+以這個後台的 URL 來說，你可以猜到它代表的意義嗎?
+
+<div class='fragment'>想想看</div>
+<ul>
+  <li class='fragment'>什麼是 fields ?</li>
+  <li class='fragment'>'fields=' 後面的東西又是什麼?</li>
+  <li class='fragment'>如果我不想要商家的名字，要怎麼做呢?</li>
+</ul>
+<br>
+<br>
+<p class='fragment'>
+  <font color='red'>
+    在 Ajax 技術一章會有進一步的介紹。
+  </font>
+</p>
+
+--- &vertical
+
+# GET Request by PostMan
+
+***
+
+用 PostMan 把這個 csv 下載下來!
+![](./assets/img/twse_files.png)
+
+***
+
+![](./assets/img/twse_postman.png)
+
+--- &vertical
+
+# Parsor for Files
+
+--- &vertical
+
+# The Basic Components of a WebSpider
+
+***
+
+![](./assets/img/spider_structure.png)
+
+***
+
+## R Code - Review
+
+***
+
+
+```r
+rm(list=ls())
+MOPS_URL.TWSE_ALL <-
+  "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
+
+web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
+data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+names(data) <- 
+  c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
+    "Underwriter")
+data <- data[-1,]
+head(data, n=3)
+```
+
+--- &vertical
+
+# More About R Basic
 
 --- &vertical
 
