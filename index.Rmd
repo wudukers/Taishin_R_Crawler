@@ -3,12 +3,18 @@ title       : R Basic with Web Crawler
 subtitle    : Week 1
 author      : Chia-Chi Chang, Yin-Chen Liao
 framework   : revealjs        # {io2012, html5slides, shower, dzslides, ...}
-revealjs    : {theme: default, transition: slides}
+revealjs    : 
+  theme: default
+  transition: slides
+  center: "true"
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax, bootstrap]  # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
+github:
+  user: wudukers
+  repo: Taishin_R_Crawler
 
 ---
 
@@ -110,8 +116,8 @@ library("XML")
 MOPS_URL.TWSE_ALL <-
   "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
 
-web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
-data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+web_page <- htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
+data <- readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
 names(data) <- 
   c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
     "Underwriter")
@@ -178,7 +184,6 @@ head(data, n=3)
 
 ![dev_shell](./assets/img/dev_shell.png)
 
-
 ***
 
 <ul>
@@ -190,7 +195,7 @@ head(data, n=3)
         <li class='fragment'>先偷看一下它長什麼樣子就好。</li>
       </ul>
   </li>
-</ul>  
+</ul>
 
 ***
 
@@ -230,6 +235,12 @@ head(data, n=3)
   <li class='fragment'>更詳盡的資料可以參考<a href='http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol'> Wiki </a>上的說明。</li>
 </ul>
 </div>
+
+***
+
+簡而言之，一般網路的運作方式大致上入下圖所示：
+
+<img src="./assets/img/http.png" width=1000 height=600>
 
 --- &vertical
 
@@ -446,9 +457,33 @@ head(data, n=3)
 
 ![](./assets/img/twse_postman.png)
 
+<div class='fragment'>
+  Is there anything wrong with this csv file?
+</div>
+<div class='fragment'>
+  What is 'csv file' anyway?
+</div>
+<div class='fragment'>
+  <font color='red'>
+    Google the information you need and think about it!
+  </font>
+</div>
+
 --- &vertical
 
 # Parsor for Files
+
+***
+
+What does a parsor do in a spider?
+
+<ul>
+  <li class='fragment'>Collecting data from connector.</li>
+  <li class='fragment'>
+    The more important is <font color='yellow'>extracting neccessary information</font> out of raw data.
+  </li>
+  <li class='fragment'>We will see more examples in later chater <em>R Basic</em>.</li>
+</ul>
 
 --- &vertical
 
@@ -467,8 +502,8 @@ rm(list=ls())
 MOPS_URL.TWSE_ALL <-
   "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
 
-web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
-data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+web_page <- htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
+data <- readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
 names(data) <- 
   c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
     "Underwriter")
@@ -476,9 +511,118 @@ data <- data[-1,]
 head(data, n=3)
 ```
 
+<div class='fragment'>
+  根據目前為止學到的網路與爬蟲知識，你可以說說看上面每一行的指令在做些什麼嗎?
+</div>
+<br>
+<div class='fragment'>
+  <font color='yellow'>
+    Try and find it out!
+  </font>
+</div>
+
 --- &vertical
 
-# More About R Basic
+# R Basic
+
+***
+
+## Basic Data Types
+
+```{r, results='hold', cache=T}
+(s <- "I love R!") # This is string
+(b <- T) # Boolean
+(f <- pi) # Floating number (real number).
+(i <- 3) # Integer
+```
+
+***
+
+## Basic Data Structure - Vector
+
+```{r, results='hold', cache=T}
+v1 <- c(1, 2, 3) # c() is the concatenate function in R.
+v2 <- c(2, 3)
+(r1 <- v1 + v2)
+(r2 <- v1 * v2)
+```
+
+***
+
+c() can be used to combine vectors into one vector.
+
+```{r, results='hold', cache=T}
+c(v1, v2)
+```
+
+***
+
+All elements in a vector must be of the same type
+
+```{r, results='hold', cache=T}
+v <- c(1, 2, "3")
+v
+```
+
+***
+
+## Basic Data Structure - List
+
+List, different from vector, can be used for storing data of different types.
+
+```{r, results='hold', cache=T}
+Dboy <- list(name="Dboy", age=28, height=172, weight=81.3)
+Dboy
+```
+
+***
+
+c() can be also used for combining lists.
+
+```{r, results='hold', cache=T}
+Dboy <- c(Dboy, list(post_code='100'))
+Dboy
+```
+
+***
+
+## Your Best Friend - Dataframe
+
+```{r, results='hold', cache=T}
+require(gdata)
+domestic_ins_company <- read.xls("http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls")
+(names(domestic_ins_company))
+head(domestic_ins_company, n=2)
+```
+
+<div class='fragment'>
+  Frankly speaking, dataframe is just like a table with bunch of useful features.
+</div>
+
+***
+
+<div align='left'>
+  <div class='fragment'>
+    <code>domestic_ins_company</code> 是直接從金管會業務統計資料中的保險機構一覽表中拿到的本國保險機構資料。
+  </div>
+  <br>
+  <div class='fragment'>聰明的你猜得出來我是從哪裡找到 xls 的網址的嗎?</div>
+  <br>
+  <div class='fragment'>
+    在此例中，<em>read.xls</em> 就是扮演著 parsor 的角色，讓你可以把資料讀進 R 中做進一步的處理。
+  </div>
+  <br>
+  <div class='fragment'>
+    想想看，如果要爬金管會的資料，你的作業流程會是如何? <br>
+    程式大概又應該怎麼寫呢?
+  </div>
+</div>
+
+***
+
+This way to the [website](http://www.tii.org.tw/fcontent/IInformation_Disclosure/information03_01.asp?P2b_sn=15)
+
+![](./assets/img/domestic_ins.png)
 
 --- &vertical
 

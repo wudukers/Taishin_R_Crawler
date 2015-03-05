@@ -3,12 +3,18 @@ title       : R Basic with Web Crawler
 subtitle    : Week 1
 author      : Chia-Chi Chang, Yin-Chen Liao
 framework   : revealjs        # {io2012, html5slides, shower, dzslides, ...}
-revealjs    : {theme: default, transition: slides}
+revealjs    : 
+  theme: default
+  transition: slides
+  center: "true"
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax, bootstrap]  # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
+github:
+  user: wudukers
+  repo: Taishin_R_Crawler
 
 ---
 
@@ -123,8 +129,8 @@ library("XML")
 MOPS_URL.TWSE_ALL <-
   "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
 
-web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
-data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+web_page <- htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
+data <- readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
 names(data) <- 
   c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
     "Underwriter")
@@ -133,10 +139,10 @@ head(data, n=3)
 ```
 
 ```
-##   Application Date Code    Company Chairman Amount of Capital Underwriter
-## 2       2014.10.16 3416    WinMate                    610,664            
-## 3       2014.10.07 8341         SF                  1,000,000            
-## 4       2014.09.25 1558 ZENG HSING                    605,526
+##   Application Date Code Company Chairman Amount of Capital Underwriter
+## 2       2015.03.03 6442  Ezconn                    600,000            
+## 3       2014.10.16 3416 WinMate                    610,664            
+## 4       2014.10.07 8341      SF                  1,000,000
 ```
 
 <p class="fragment">
@@ -198,7 +204,6 @@ head(data, n=3)
 
 ![dev_shell](./assets/img/dev_shell.png)
 
-
 ***
 
 <ul>
@@ -210,7 +215,7 @@ head(data, n=3)
         <li class='fragment'>先偷看一下它長什麼樣子就好。</li>
       </ul>
   </li>
-</ul>  
+</ul>
 
 ***
 
@@ -250,6 +255,12 @@ head(data, n=3)
   <li class='fragment'>更詳盡的資料可以參考<a href='http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol'> Wiki </a>上的說明。</li>
 </ul>
 </div>
+
+***
+
+簡而言之，一般網路的運作方式大致上入下圖所示：
+
+<img src="./assets/img/http.png" width=1000 height=600>
 
 --- &vertical
 
@@ -466,9 +477,33 @@ head(data, n=3)
 
 ![](./assets/img/twse_postman.png)
 
+<div class='fragment'>
+  Is there anything wrong with this csv file?
+</div>
+<div class='fragment'>
+  What is 'csv file' anyway?
+</div>
+<div class='fragment'>
+  <font color='red'>
+    Google the information you need and think about it!
+  </font>
+</div>
+
 --- &vertical
 
 # Parsor for Files
+
+***
+
+What does a parsor do in a spider?
+
+<ul>
+  <li class='fragment'>Collecting data from connector.</li>
+  <li class='fragment'>
+    The more important is <font color='yellow'>extracting neccessary information</font> out of raw data.
+  </li>
+  <li class='fragment'>We will see more examples in later chater <em>R Basic</em>.</li>
+</ul>
 
 --- &vertical
 
@@ -488,8 +523,8 @@ rm(list=ls())
 MOPS_URL.TWSE_ALL <-
   "http://www.twse.com.tw/en/listed/listed_company/apply_listing.php?page=1"
 
-web_page = htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
-data = readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+web_page <- htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
+data <- readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
 names(data) <- 
   c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
     "Underwriter")
@@ -497,9 +532,219 @@ data <- data[-1,]
 head(data, n=3)
 ```
 
+<div class='fragment'>
+  根據目前為止學到的網路與爬蟲知識，你可以說說看上面每一行的指令在做些什麼嗎?
+</div>
+<br>
+<div class='fragment'>
+  <font color='yellow'>
+    Try and find it out!
+  </font>
+</div>
+
 --- &vertical
 
-# More About R Basic
+# R Basic
+
+***
+
+## Basic Data Types
+
+
+```r
+(s <- "I love R!") # This is string
+(b <- T) # Boolean
+(f <- pi) # Floating number (real number).
+(i <- 3) # Integer
+```
+
+```
+## [1] "I love R!"
+```
+
+```
+## [1] TRUE
+```
+
+```
+## [1] 3.142
+```
+
+```
+## [1] 3
+```
+
+***
+
+## Basic Data Structure - Vector
+
+
+```r
+v1 <- c(1, 2, 3) # c() is the concatenate function in R.
+v2 <- c(2, 3)
+(r1 <- v1 + v2)
+```
+
+```
+## Warning: 較長的物件長度並非較短物件長度的倍數
+```
+
+```r
+(r2 <- v1 * v2)
+```
+
+```
+## Warning: 較長的物件長度並非較短物件長度的倍數
+```
+
+```
+## [1] 3 5 5
+```
+
+```
+## [1] 2 6 6
+```
+
+***
+
+c() can be used to combine vectors into one vector.
+
+
+```r
+c(v1, v2)
+```
+
+```
+## [1] 1 2 3 2 3
+```
+
+***
+
+All elements in a vector must be of the same type
+
+
+```r
+v <- c(1, 2, "3")
+v
+```
+
+```
+## [1] "1" "2" "3"
+```
+
+***
+
+## Basic Data Structure - List
+
+List, different from vector, can be used for storing data of different types.
+
+
+```r
+Dboy <- list(name="Dboy", age=28, height=172, weight=81.3)
+Dboy
+```
+
+```
+## $name
+## [1] "Dboy"
+## 
+## $age
+## [1] 28
+## 
+## $height
+## [1] 172
+## 
+## $weight
+## [1] 81.3
+```
+
+***
+
+c() can be also used for combining lists.
+
+
+```r
+Dboy <- c(Dboy, list(post_code='100'))
+Dboy
+```
+
+```
+## $name
+## [1] "Dboy"
+## 
+## $age
+## [1] 28
+## 
+## $height
+## [1] 172
+## 
+## $weight
+## [1] 81.3
+## 
+## $post_code
+## [1] "100"
+```
+
+***
+
+## Your Best Friend - Dataframe
+
+
+```r
+require(gdata)
+domestic_ins_company <- read.xls("http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls")
+(names(domestic_ins_company))
+head(domestic_ins_company, n=2)
+```
+
+```
+## [1] "名.稱.與.所.在.地" "設立日期"          "董事長"           
+## [4] "總經理"            "電話.電傳"         "網址"
+```
+
+```
+##                                                                                                                             名.稱.與.所.在.地
+## 1                                                                                                                                            
+## 2 臺灣產物保險股份有限公司\n100 台北市館前路49號 8、9樓\nTaiwan Fire & Marine Insurance Co., Ltd\n8-9 F1., No.49, Kuan Chien Road, Taipei 100
+##   設立日期            董事長               總經理
+## 1                                                
+## 2 37/03/12 李泰宏\nSteve Lee 宋道平\nCharles Song
+##                                           電話.電傳
+## 1                                      與免付費電話
+## 2 Tel. (02)23821666\nFax. (02)23882555\n0809-068888
+##                         網址
+## 1 (公司、資訊公開與重大訊息)
+## 2    http://www.tfmi.com.tw/
+```
+
+<div class='fragment'>
+  Frankly speaking, dataframe is just like a table with bunch of useful features.
+</div>
+
+***
+
+<div align='left'>
+  <div class='fragment'>
+    <code>domestic_ins_company</code> 是直接從金管會業務統計資料中的保險機構一覽表中拿到的本國保險機構資料。
+  </div>
+  <br>
+  <div class='fragment'>聰明的你猜得出來我是從哪裡找到 xls 的網址的嗎?</div>
+  <br>
+  <div class='fragment'>
+    在此例中，<em>read.xls</em> 就是扮演著 parsor 的角色，讓你可以把資料讀進 R 中做進一步的處理。
+  </div>
+  <br>
+  <div class='fragment'>
+    想想看，如果要爬金管會的資料，你的作業流程會是如何? <br>
+    程式大概又應該怎麼寫呢?
+  </div>
+</div>
+
+***
+
+This way to the [website](http://www.tii.org.tw/fcontent/IInformation_Disclosure/information03_01.asp?P2b_sn=15)
+
+![](./assets/img/domestic_ins.png)
 
 --- &vertical
 
