@@ -898,7 +898,7 @@ head(domestic_ins_company, n=2)
   <div class='fragment'>聰明的你猜得出來我是從哪裡找到 xls 的網址的嗎?</div>
   <br>
   <div class='fragment'>
-    在此例中，<em>read.xls</em> 就是扮演著 parsor 的角色，讓你可以把資料讀進 R 中做進一步的處理。
+    在此例中，<code class='r'>read.xls</code> 就是扮演著 parsor 的角色，讓你可以把資料讀進 R 中做進一步的處理。
   </div>
   <br>
   <div class='fragment'>
@@ -914,7 +914,7 @@ head(domestic_ins_company, n=2)
    <section class='' data-state=''>
     <h2>情境一</h2>
 
-<p>我有 8 個網址要爬，難不成我要複製貼上 8 次 read.xls !?</p>
+<p>我有 8 個網址要爬，難不成我要複製貼上 8 次 <code class='r'>read.xls</code> !?</p>
 
 <div class='fragment'>
   <font color='yellow'>For loop is all you need!</font>
@@ -1212,9 +1212,23 @@ weights[&quot;dboy&quot;]
       <li>下載不動產買賣實價登錄批次資料 (csv)</li>
       <li>請問瀏覽器這時是發 GET 還是 POST request? 哪裡可以看到相關資訊呢?</li>
       <li>下載下來的 csv 檔如何讀進 R ?</li>
-      <li class='fragment'>Hint: read.csv</li>
+      <li class='fragment'>Hint: <code class='r'>read.csv</code></li>
     </ul>
   </li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+  <li><font color='#00FFFF'>Post Method</font></li>
+  <ul>
+    <li class='fragment'>運用 Chrome (Firefox) 開發者工具找出可以發 post request 的網站</li>
+    <li class='fragment'>Hint: 尋找 form tag。 <br>
+      <span><</span><font color='#FF0040'>form</font> <font color="#31B404">action</font>=<font color="#F7D358">'...'</font><span>></span>.....<span><</span>/<font color='#FF0040'>form</font><span>></span></li>
+  </ul> 
 </ul>
 
     <aside class='notes'>
