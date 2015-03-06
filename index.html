@@ -912,9 +912,284 @@ head(domestic_ins_company, n=2)
     </aside>
    </section>
    <section class='' data-state=''>
+    <h2>情境一</h2>
+
+<p>我有 8 個網址要爬，難不成我要複製貼上 8 次 read.xls !?</p>
+
+<div class='fragment'>
+  <font color='yellow'>For loop is all you need!</font>
+</div>
+
+<p><br></p>
+
+<div class='fragment'>我們一樣用金管會的網站當例子</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
     <p>This way to the <a href="http://www.tii.org.tw/fcontent/IInformation_Disclosure/information03_01.asp?P2b_sn=15">website</a></p>
 
 <p><img src="./assets/img/domestic_ins.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <pre><code class="r">urls &lt;- list(&quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20141030.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E5%A3%BD%E9%9A%AA%E5%85%AC%E5%8F%B8_20150113.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E5%A3%BD%E9%9A%AA%E5%85%AC%E5%8F%B8_20140904.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E5%B0%88%E6%A5%AD%E5%86%8D%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B81001228.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B8%E5%9C%A8%E5%8F%B0%E8%81%AF%E7%B5%A1%E8%99%9520140703.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E4%BF%9D%E9%9A%AA%E7%9B%B8%E9%97%9C%E6%A9%9F%E6%A7%8B_20141227.xls&quot;,
+            &quot;http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E9%87%91%E8%9E%8D%E4%BF%9D%E9%9A%AA%E7%9B%B8%E9%97%9C%E6%A9%9F%E6%A7%8B1010102.xls&quot;)
+results &lt;- list()
+for (url in urls){
+  print(paste(&quot;Processing &quot;, url))
+  data &lt;- read.xls(url, header=T, stringsAsFactors=F)
+  results &lt;- c(results, list(data))
+}
+</code></pre>
+
+<pre><code>## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20141030.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E5%A3%BD%E9%9A%AA%E5%85%AC%E5%8F%B8_20150113.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E5%A3%BD%E9%9A%AA%E5%85%AC%E5%8F%B8_20140904.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E5%B0%88%E6%A5%AD%E5%86%8D%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B81001228.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B8%E5%9C%A8%E5%8F%B0%E8%81%AF%E7%B5%A1%E8%99%9520140703.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E4%BF%9D%E9%9A%AA%E7%9B%B8%E9%97%9C%E6%A9%9F%E6%A7%8B_20141227.xls&quot;
+## [1] &quot;Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E9%87%91%E8%9E%8D%E4%BF%9D%E9%9A%AA%E7%9B%B8%E9%97%9C%E6%A9%9F%E6%A7%8B1010102.xls&quot;
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <pre><code class="r">head(results[[1]], n = 3)
+</code></pre>
+
+<pre><code>##                                                                                                                             名.稱.與.所.在.地
+## 1                                                                                                                                            
+## 2 臺灣產物保險股份有限公司\n100 台北市館前路49號 8、9樓\nTaiwan Fire &amp; Marine Insurance Co., Ltd\n8-9 F1., No.49, Kuan Chien Road, Taipei 100
+## 3                                                                                                                                            
+##   設立日期            董事長               總經理
+## 1                                                
+## 2 37/03/12 李泰宏\nSteve Lee 宋道平\nCharles Song
+## 3                                                
+##                                           電話.電傳
+## 1                                      與免付費電話
+## 2 Tel. (02)23821666\nFax. (02)23882555\n0809-068888
+## 3                                                  
+##                                                網址
+## 1                        (公司、資訊公開與重大訊息)
+## 2                           http://www.tfmi.com.tw/
+## 3 http://www.tfmi.com.tw/ec/news/news-public.screen
+</code></pre>
+
+<div class='fragment'>
+  <font color='yellow'>
+    咦!? <code class='r'>results[[1]]</code> 是什麼?
+  </font>
+</div>  
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Slice</h2>
+
+<ul>
+  <li class='fragment'>
+    在上面的例子裡，我們可以在 R 裡面可以用很簡單直觀的方式，也就是 <code>[index1[, index2, ...]]</code> 之類的語法來存取特定區塊的資料。稱之為 slicing。
+  </li>
+  <li class='fragment'>vector、list 與 data.frame 有著不同的 slicing 語法。</li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>範例</h2>
+
+<pre><code class="r">v &lt;- c(1:20) # v 是個 vector
+l &lt;- list(pi, 306, &quot;Taishin&quot;) # l 是個 list
+df &lt;- data(iris) # df 是個 data.frame
+
+print(c(&quot;v[3]&quot;, v[3])) # 抽取 v 的第三個 element
+print(c(class(l[3]), class(l[[3]]))) # [] 與 [[]] 的差別
+print(iris[c(2, 5), c(1, 3, 5)]) # data.frame 的 slicing 語法
+</code></pre>
+
+<pre><code>## [1] &quot;v[3]&quot; &quot;3&quot;
+</code></pre>
+
+<pre><code>## [1] &quot;list&quot;      &quot;character&quot;
+</code></pre>
+
+<pre><code>##   Sepal.Length Petal.Length Species
+## 2          4.9          1.4  setosa
+## 5          5.0          1.4  setosa
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>補充說明 - Slicing for Dataframe</h2>
+
+<p>Dataframe 長得像這樣子 (以 iris 為例)</p>
+
+<p><img src="./assets/img/iris_index.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><code class='r'>irirs[c(2, 5), c(1, 3, 5)]</code> 
+<br>
+或者是 
+<br>
+<code class='r'>iris[c(2, 5), c(&quot;Sepal.Length&quot;, &quot;Petal.Length&quot;, &quot;Species&quot;)]</code></p>
+
+<p><img src="./assets/img/DataFrameSubsetting2.png" alt=""></p>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p><code class='r'>head(df, n=6)</code> 顧名思義，會顯示 df 前 n 筆資料</p>
+
+<pre><code class="r">head(iris) # 預設 n 是 6 筆
+</code></pre>
+
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <div class='fragment'>做人做事就要有頭 (head) 有尾 (tail) !</div>
+
+<p><br></p>
+
+<div class='fragment'>寫 code 學人生哲理。(茶)</div>
+
+<p><br></p>
+
+<div class='fragment'>
+  <code class='r'>tail(df, n=6)</code> 跟 <code class='r'>head()</code> 成對，會顯示 df 最後 n 筆資料
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <pre><code class="r">tail(iris) # 預設一樣是 6
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 145          6.7         3.3          5.7         2.5 virginica
+## 146          6.7         3.0          5.2         2.3 virginica
+## 147          6.3         2.5          5.0         1.9 virginica
+## 148          6.5         3.0          5.2         2.0 virginica
+## 149          6.2         3.4          5.4         2.3 virginica
+## 150          5.9         3.0          5.1         1.8 virginica
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>除了 list 可以取名字、data.frame 有欄位名，vector 也是可以取名字並且用 <code class="r">[]</code> 取存取它!</p>
+
+<pre><code class="r">weights &lt;- c(hsiang=70, c3h3=62, dboy=82)
+weights[&quot;dboy&quot;]
+</code></pre>
+
+<pre><code>## dboy 
+##   82
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>回頭看看之前抓到的資料</p>
+
+<pre><code class="r">(head(results[[1]], n=2))
+</code></pre>
+
+<pre><code>##                                                                                                                             名.稱.與.所.在.地
+## 1                                                                                                                                            
+## 2 臺灣產物保險股份有限公司\n100 台北市館前路49號 8、9樓\nTaiwan Fire &amp; Marine Insurance Co., Ltd\n8-9 F1., No.49, Kuan Chien Road, Taipei 100
+##   設立日期            董事長               總經理
+## 1                                                
+## 2 37/03/12 李泰宏\nSteve Lee 宋道平\nCharles Song
+##                                           電話.電傳
+## 1                                      與免付費電話
+## 2 Tel. (02)23821666\nFax. (02)23882555\n0809-068888
+##                         網址
+## 1 (公司、資訊公開與重大訊息)
+## 2    http://www.tfmi.com.tw/
+</code></pre>
+
+<div class='fragment'>
+  <font color='yellow'>
+    大家覺得抓下來的資料有什麼問題?
+  </font>
+</div>
+
+<p><br></p>
+
+<div class='fragment'>
+  用剛剛學到的 slicing 語法看看這些 data.frame 吧!
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>? 與 ??</h2>
+
+<div>?/?? 是 R 裡的 helper function</div>
+
+<p><br></p>
+
+<div class='fragment'>
+  可使用 <code class='r'>?command</code> 去查詢相關文件與指令說明。
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>範例</h2>
+
+<pre><code class="r">?c # 查詢 c 的說明文件
+??c # 搜尋所有有關 c 的說明文件
+</code></pre>
 
     <aside class='notes'>
       
@@ -924,6 +1199,32 @@ head(domestic_ins_company, n=2)
 <section>
    <section class='' data-state=''>
     <h1>Homework</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+  <li>
+    <a href="http://data.gov.tw/">政府資料開放平台</a>
+    <ul>
+      <li>下載不動產買賣實價登錄批次資料 (csv)</li>
+      <li>請問瀏覽器這時是發 GET 還是 POST request? 哪裡可以看到相關資訊呢?</li>
+      <li>下載下來的 csv 檔如何讀進 R ?</li>
+      <li class='fragment'>Hint: read.csv</li>
+    </ul>
+  </li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>Q &amp; A</h1>
     
     <aside class='notes'>
       
