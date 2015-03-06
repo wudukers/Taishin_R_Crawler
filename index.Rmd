@@ -25,7 +25,7 @@ github:
   <font color="green">Week 1</font>
 </h3>
 <h3>
-  <font color=#CCCCA3>Chia-Chi Chang, Yin-Chen Liao</font>
+  <font color=#CCCCA3>Chia-Chi Chang</font>
 </h3>
 
 --- &vertical
