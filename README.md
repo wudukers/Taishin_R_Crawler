@@ -42,3 +42,14 @@
   - NoSQL
     - Redis
     - MongoDB
+
+---
+
+## Week4 
+
+`Visualization & Reporting`
+
+- ggplot2
+- dplyr
+- Shiny
+
