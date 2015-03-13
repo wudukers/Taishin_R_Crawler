@@ -75,7 +75,7 @@
 
 <pre><code>## 
 ## The downloaded binary packages are in
-##  /var/folders/5c/0p5zr2_n4xvbt2j6hkqczhph0000gn/T//Rtmpf9Hxhx/downloaded_packages
+##  /var/folders/5c/0p5zr2_n4xvbt2j6hkqczhph0000gn/T//RtmpUI1qaF/downloaded_packages
 </code></pre>
 
     <aside class='notes'>
@@ -91,9 +91,6 @@
 </ul>
 
 <pre><code class="r">library(&quot;XML&quot;)
-</code></pre>
-
-<pre><code>## Warning: package &#39;XML&#39; was built under R version 3.1.2
 </code></pre>
 
 <div align='left'>
@@ -858,7 +855,25 @@ Dboy
     <h2>Your Best Friend - Dataframe</h2>
 
 <pre><code class="r">require(gdata)
-domestic_ins_company &lt;- read.xls(&quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls&quot;)
+</code></pre>
+
+<pre><code>## Loading required package: gdata
+## gdata: read.xls support for &#39;XLS&#39; (Excel 97-2004) files ENABLED.
+## 
+## gdata: read.xls support for &#39;XLSX&#39; (Excel 2007+) files ENABLED.
+## 
+## Attaching package: &#39;gdata&#39;
+## 
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     nobs
+## 
+## The following object is masked from &#39;package:utils&#39;:
+## 
+##     object.size
+</code></pre>
+
+<pre><code class="r">domestic_ins_company &lt;- read.xls(&quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls&quot;)
 (names(domestic_ins_company))
 head(domestic_ins_company, n=2)
 </code></pre>

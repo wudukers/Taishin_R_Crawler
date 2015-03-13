@@ -67,7 +67,7 @@ install.packages("XML")
 ```
 ## 
 ## The downloaded binary packages are in
-## 	/var/folders/5c/0p5zr2_n4xvbt2j6hkqczhph0000gn/T//Rtmpf9Hxhx/downloaded_packages
+## 	/var/folders/5c/0p5zr2_n4xvbt2j6hkqczhph0000gn/T//RtmpUI1qaF/downloaded_packages
 ```
 
 ***
@@ -81,10 +81,6 @@ install.packages("XML")
 
 ```r
 library("XML")
-```
-
-```
-## Warning: package 'XML' was built under R version 3.1.2
 ```
 
 <div align='left'>
@@ -692,6 +688,26 @@ Dboy
 
 ```r
 require(gdata)
+```
+
+```
+## Loading required package: gdata
+## gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+## 
+## gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+## 
+## Attaching package: 'gdata'
+## 
+## The following object is masked from 'package:stats':
+## 
+##     nobs
+## 
+## The following object is masked from 'package:utils':
+## 
+##     object.size
+```
+
+```r
 domestic_ins_company <- read.xls("http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls")
 (names(domestic_ins_company))
 head(domestic_ins_company, n=2)
