@@ -30,6 +30,18 @@ github:
 
 --- &vertical
 
+# 本週學習目標
+
+***
+
+- 基礎網路知識
+- 安裝與使用套件
+- 爬蟲 GUI 工具的使用
+- 讀取本機端或遠端資料
+- R 基本資料結構與操作
+
+--- &vertical
+
 # Packages
 
 <div align='left'>
@@ -636,22 +648,22 @@ List, different from vector, can be used for storing data of different types.
 
 
 ```r
-Dboy <- list(name="Dboy", age=28, height=172, weight=81.3)
-Dboy
+c3h3 <- list(name="c3h3", age=30, height=172, weight=65.3)
+c3h3
 ```
 
 ```
 ## $name
-## [1] "Dboy"
+## [1] "c3h3"
 ## 
 ## $age
-## [1] 28
+## [1] 30
 ## 
 ## $height
 ## [1] 172
 ## 
 ## $weight
-## [1] 81.3
+## [1] 65.3
 ```
 
 ***
@@ -660,24 +672,24 @@ c() can be also used for combining lists.
 
 
 ```r
-Dboy <- c(Dboy, list(post_code='100'))
-Dboy
+c3h3 <- c(c3h3, list(zip_code='100'))
+c3h3
 ```
 
 ```
 ## $name
-## [1] "Dboy"
+## [1] "c3h3"
 ## 
 ## $age
-## [1] 28
+## [1] 30
 ## 
 ## $height
 ## [1] 172
 ## 
 ## $weight
-## [1] 81.3
+## [1] 65.3
 ## 
-## $post_code
+## $zip_code
 ## [1] "100"
 ```
 
@@ -688,26 +700,6 @@ Dboy
 
 ```r
 require(gdata)
-```
-
-```
-## Loading required package: gdata
-## gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
-## 
-## gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
-## 
-## Attaching package: 'gdata'
-## 
-## The following object is masked from 'package:stats':
-## 
-##     nobs
-## 
-## The following object is masked from 'package:utils':
-## 
-##     object.size
-```
-
-```r
 domestic_ins_company <- read.xls("http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls")
 (names(domestic_ins_company))
 head(domestic_ins_company, n=2)
@@ -758,7 +750,7 @@ head(domestic_ins_company, n=2)
 
 ***
 
-## 情境一
+## 情境
 
 我有 8 個網址要爬，難不成我要複製貼上 8 次 <code class='r'>read.xls</code> !?
 
@@ -949,12 +941,33 @@ tail(iris) # 預設一樣是 6
 
 ```r
 weights <- c(hsiang=70, c3h3=62, dboy=82)
-weights["dboy"]
+weights["c3h3"]
 ```
 
 ```
-## dboy 
-##   82
+## c3h3 
+##   62
+```
+
+***
+
+<h2>
+  <code class='r'>[]</code> 與 <code class='r'>[[]]</code> 是不一樣的
+</h2>
+
+
+
+```r
+class(c3h3["weight"]) # 是個 list
+class(c3h3[["weight"]]) # 是個數字
+```
+
+```
+## [1] "list"
+```
+
+```
+## [1] "numeric"
 ```
 
 ***
@@ -1041,7 +1054,6 @@ weights["dboy"]
       <span><</span><font color='#FF0040'>form</font> <font color="#31B404">action</font>=<font color="#F7D358">'...'</font><span>></span>.....<span><</span>/<font color='#FF0040'>form</font><span>></span></li>
   </ul> 
 </ul>
-
 
 --- &vertical
 

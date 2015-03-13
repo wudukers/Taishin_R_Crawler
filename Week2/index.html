@@ -36,6 +36,34 @@
 </section>
 <section>
    <section class='' data-state=''>
+    <h1>本週學習目標</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+<li>靜態網頁 v.s 動態網頁: Ajax</li>
+<li>Post Method</li>
+<li>Selector (XPath)</li>
+<li>WebDriver RSelenium 的使用</li>
+<li>R Basic
+
+<ul>
+<li>自定義 Function</li>
+<li>控制流程: if、while</li>
+<li>Data I/O</li>
+</ul></li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
     <h1>Ajax</h1>
     
     <aside class='notes'>
@@ -155,6 +183,21 @@
       
     </aside>
    </section>
+   <section class='' data-state=''>
+    <div align='left'>
+    別緊張，因為我們可以:
+    <br>
+    <br>
+    <ul>
+        <li class='fragment'>利用 WebDriver 可以讓你省去破解 javascript code 的時間。</li>
+        <li class='fragment'>今天後續的課程會教你如何用 RSelenium 這個套件去操作 Selenium 以達到自動化爬蟲的目的。</li>
+    </ul>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
 <section>
    <section class='' data-state=''>
@@ -189,6 +232,62 @@
 
 <div class='fragment'>說說你的發現吧!</div>
 
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <p>網頁自己動起來了!</p>
+
+<p><img src="assets/img/mops_post.png" alt=""></p>
+
+<div class='fragment'>
+    <font color='red'>
+        咦? POST 耶!
+    </font>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Post in Detail</h2>
+
+<div align='left'>
+    根據 <a href="http://www.w3schools.com/tags/ref_httpmethods.asp">w3school</a> 的說明，POST 與 GET 最大的不同是:
+    <ul>
+        <li class='fragment'>GET 用於從 server 讀取資料; POST 用於提交資料給 server 處理。</li>
+        <li class='fragment'>GET 提交的資料會顯示于網址中; POST 提交的資料是存在于 HTTP 訊息主體中。</li>
+        <li class='fragment'>以資料安全性來說，POST 比較安全。</li>   
+    </ul>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <div align='left'>
+    如果經過剛剛的說明，你還是不太懂?
+    <br>
+    <br>
+    <div class='fragment'>沒關係，以寫爬蟲來說影響不大</div>
+    <br>
+    <div class='fragment'>你只需要知道有時候你必須要使用 POST request 才能拿到資料</div>
+    <br>
+    <div class='fragment'>接下來就是學習如何用 R 發 POST request 與夾帶所需要的 data 給 server 。</div>
+</div>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
+    <h1>POST Request with R</h1>
+    
     <aside class='notes'>
       
     </aside>
@@ -230,7 +329,13 @@
     </aside>
    </section>
    <section class='' data-state=''>
-    <h2>We Need Powerful CSV Parsor</h2>
+    <h2>We Need Powerful CSV Parsor (Cleaner)</h2>
+
+<div class='fragment'>自己的 Cleaner 自己寫!</div>
+
+<p><br></p>
+
+<div class='fragment'>Go Go R!</div>
 
     <aside class='notes'>
       
@@ -245,11 +350,54 @@
       
     </aside>
    </section>
+   <section class='' data-state=''>
+    <h2>User-Defined Function</h2>
+
+<pre><code class="r">cleanDomInsCom &lt;- function(data_frame){
+  data_frame &lt;- data_frame[-1,] # 去掉第一個 row
+  n_row &lt;- nrow(data_frame)
+  n_col &lt;- ncol(data_frame)
+  current_row &lt;- 1
+  for (row in 1:n_row){
+    for (col in 1:n_col){
+      if (data_frame[row, col] == &quot;&quot;){
+        print(c(data_frame[row, col], row, col))
+        data_frame[row, col] &lt;- data_frame[row-1, col]
+      }
+    }
+  }
+  return(data_frame)
+}
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>Data I/O</h2>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
 </section>
 <section>
    <section class='' data-state=''>
     <h1>Homework</h1>
     
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+  <li><font color='#00FFFF'>抓取圖片</font></li>
+  <li class='fragment'>到最新一期的<a href="http://www.comicvip.com/html/103.html">海賊王</a>線上漫畫</li>
+  <li class='fragment'>觀察瀏覽漫畫時的網址變化</li>
+  <li class='fragment'>運用今日所學，把最新一期的漫畫圖片抓下來</li>
+</ul>
+
     <aside class='notes'>
       
     </aside>

@@ -30,6 +30,21 @@ github:
 
 --- &vertical
 
+# 本週學習目標
+
+***
+
+- 靜態網頁 v.s 動態網頁: Ajax
+- Post Method
+- Selector (XPath)
+- WebDriver RSelenium 的使用
+- R Basic
+	- 自定義 Function
+	- 控制流程: if、while
+	- Data I/O
+
+--- &vertical
+
 # Ajax
 
 ***
@@ -120,6 +135,18 @@ github:
 	<font size=14 color='red'>崩潰!!!</font>
 </div>
 
+***
+
+<div align='left'>
+	別緊張，因為我們可以:
+	<br>
+	<br>
+	<ul>
+		<li class='fragment'>利用 WebDriver 可以讓你省去破解 javascript code 的時間。</li>
+		<li class='fragment'>今天後續的課程會教你如何用 RSelenium 這個套件去操作 Selenium 以達到自動化爬蟲的目的。</li>
+	</ul>
+</div>
+
 
 --- &vertical
 
@@ -143,6 +170,48 @@ github:
 - 觀察 Network 分頁所顯示的資訊
 
 <div class='fragment'>說說你的發現吧!</div>
+
+***
+
+網頁自己動起來了!
+
+![](assets/img/mops_post.png)
+
+<div class='fragment'>
+	<font color='red'>
+		咦? POST 耶!
+	</font>
+</div>
+
+***
+
+## Post in Detail
+
+<div align='left'>
+	根據 <a href="http://www.w3schools.com/tags/ref_httpmethods.asp">w3school</a> 的說明，POST 與 GET 最大的不同是:
+	<ul>
+		<li class='fragment'>GET 用於從 server 讀取資料; POST 用於提交資料給 server 處理。</li>
+		<li class='fragment'>GET 提交的資料會顯示于網址中; POST 提交的資料是存在于 HTTP 訊息主體中。</li>
+		<li class='fragment'>以資料安全性來說，POST 比較安全。</li>	
+	</ul>
+</div>
+
+***
+
+<div align='left'>
+	如果經過剛剛的說明，你還是不太懂?
+	<br>
+	<br>
+	<div class='fragment'>沒關係，以寫爬蟲來說影響不大</div>
+	<br>
+	<div class='fragment'>你只需要知道有時候你必須要使用 POST request 才能拿到資料</div>
+	<br>
+	<div class='fragment'>接下來就是學習如何用 R 發 POST request 與夾帶所需要的 data 給 server 。</div>
+</div>
+
+--- &vertical
+
+# POST Request with R
 
 --- &vertical
 
@@ -169,15 +238,54 @@ github:
 
 ***
 
-## We Need Powerful CSV Parsor
+## We Need Powerful CSV Parsor (Cleaner)
+
+<div class='fragment'>自己的 Cleaner 自己寫!</div>
+<br>
+<div class='fragment'>Go Go R!</div>
 
 --- &vertical
 
-# R Basic
+# R Basic 
+
+***
+
+## User-Defined Function
+
+
+```r
+cleanDomInsCom <- function(data_frame){
+  data_frame <- data_frame[-1,] # 去掉第一個 row
+  n_row <- nrow(data_frame)
+  n_col <- ncol(data_frame)
+  current_row <- 1
+  for (row in 1:n_row){
+    for (col in 1:n_col){
+      if (data_frame[row, col] == ""){
+        print(c(data_frame[row, col], row, col))
+        data_frame[row, col] <- data_frame[row-1, col]
+      }
+    }
+  }
+  return(data_frame)
+}
+```
+***
+
+## Data I/O
 
 --- &vertical
 
 # Homework
+
+***
+
+<ul>
+  <li><font color='#00FFFF'>抓取圖片</font></li>
+  <li class='fragment'>到最新一期的<a href="http://www.comicvip.com/html/103.html">海賊王</a>線上漫畫</li>
+  <li class='fragment'>觀察瀏覽漫畫時的網址變化</li>
+  <li class='fragment'>運用今日所學，把最新一期的漫畫圖片抓下來</li>
+</ul>
 
 --- &vertical
 

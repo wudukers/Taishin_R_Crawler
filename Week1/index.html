@@ -37,6 +37,28 @@
 </section>
 <section>
    <section class='' data-state=''>
+    <h1>本週學習目標</h1>
+    
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <ul>
+<li>基礎網路知識</li>
+<li>安裝與使用套件</li>
+<li>爬蟲 GUI 工具的使用</li>
+<li>讀取本機端或遠端資料</li>
+<li>R 基本資料結構與操作</li>
+</ul>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+</section>
+<section>
+   <section class='' data-state=''>
     <h1>Packages</h1>
     <div align='left'>
 <p>R 是個開源免費的軟體。</p>
@@ -803,21 +825,21 @@ v
 
 <p>List, different from vector, can be used for storing data of different types.</p>
 
-<pre><code class="r">Dboy &lt;- list(name=&quot;Dboy&quot;, age=28, height=172, weight=81.3)
-Dboy
+<pre><code class="r">c3h3 &lt;- list(name=&quot;c3h3&quot;, age=30, height=172, weight=65.3)
+c3h3
 </code></pre>
 
 <pre><code>## $name
-## [1] &quot;Dboy&quot;
+## [1] &quot;c3h3&quot;
 ## 
 ## $age
-## [1] 28
+## [1] 30
 ## 
 ## $height
 ## [1] 172
 ## 
 ## $weight
-## [1] 81.3
+## [1] 65.3
 </code></pre>
 
     <aside class='notes'>
@@ -827,23 +849,23 @@ Dboy
    <section class='' data-state=''>
     <p>c() can be also used for combining lists.</p>
 
-<pre><code class="r">Dboy &lt;- c(Dboy, list(post_code=&#39;100&#39;))
-Dboy
+<pre><code class="r">c3h3 &lt;- c(c3h3, list(zip_code=&#39;100&#39;))
+c3h3
 </code></pre>
 
 <pre><code>## $name
-## [1] &quot;Dboy&quot;
+## [1] &quot;c3h3&quot;
 ## 
 ## $age
-## [1] 28
+## [1] 30
 ## 
 ## $height
 ## [1] 172
 ## 
 ## $weight
-## [1] 81.3
+## [1] 65.3
 ## 
-## $post_code
+## $zip_code
 ## [1] &quot;100&quot;
 </code></pre>
 
@@ -855,25 +877,7 @@ Dboy
     <h2>Your Best Friend - Dataframe</h2>
 
 <pre><code class="r">require(gdata)
-</code></pre>
-
-<pre><code>## Loading required package: gdata
-## gdata: read.xls support for &#39;XLS&#39; (Excel 97-2004) files ENABLED.
-## 
-## gdata: read.xls support for &#39;XLSX&#39; (Excel 2007+) files ENABLED.
-## 
-## Attaching package: &#39;gdata&#39;
-## 
-## The following object is masked from &#39;package:stats&#39;:
-## 
-##     nobs
-## 
-## The following object is masked from &#39;package:utils&#39;:
-## 
-##     object.size
-</code></pre>
-
-<pre><code class="r">domestic_ins_company &lt;- read.xls(&quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls&quot;)
+domestic_ins_company &lt;- read.xls(&quot;http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls&quot;)
 (names(domestic_ins_company))
 head(domestic_ins_company, n=2)
 </code></pre>
@@ -927,7 +931,7 @@ head(domestic_ins_company, n=2)
     </aside>
    </section>
    <section class='' data-state=''>
-    <h2>情境一</h2>
+    <h2>情境</h2>
 
 <p>我有 8 個網址要爬，難不成我要複製貼上 8 次 <code class='r'>read.xls</code> !?</p>
 
@@ -1137,11 +1141,30 @@ print(iris[c(2, 5), c(1, 3, 5)]) # data.frame 的 slicing 語法
     <p>除了 list 可以取名字、data.frame 有欄位名，vector 也是可以取名字並且用 <code class="r">[]</code> 取存取它!</p>
 
 <pre><code class="r">weights &lt;- c(hsiang=70, c3h3=62, dboy=82)
-weights[&quot;dboy&quot;]
+weights[&quot;c3h3&quot;]
 </code></pre>
 
-<pre><code>## dboy 
-##   82
+<pre><code>## c3h3 
+##   62
+</code></pre>
+
+    <aside class='notes'>
+      
+    </aside>
+   </section>
+   <section class='' data-state=''>
+    <h2>
+  <code class='r'>[]</code> 與 <code class='r'>[[]]</code> 是不一樣的
+</h2>
+
+<pre><code class="r">class(c3h3[&quot;weight&quot;]) # 是個 list
+class(c3h3[[&quot;weight&quot;]]) # 是個數字
+</code></pre>
+
+<pre><code>## [1] &quot;list&quot;
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
 </code></pre>
 
     <aside class='notes'>
