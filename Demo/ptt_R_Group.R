@@ -1,5 +1,13 @@
-"http://mops.twse.com.tw/mops/web/t51sb01"
 
 library(httr)
-ptt_posts_lit <- GET("https://www.ptt.cc/bbs/R_Language/index.html")
-htmlParse(content(ptt_posts_lit, "text", encoding = "utf8"))
+library(XML)
+res <- GET("https://www.ptt.cc/bbs/R_Language/index.html")
+html <- htmlParse(content(res, "text", encoding = "utf8"))
+html
+
+
+library(CSS)
+library(stringr)
+library("Rwordseg", lib.loc="/usr/local/lib/R/site-library")
+str_trim(cssApply(html,"div.title", cssCharacter))
+segmentCN(str_trim(cssApply(html,"div.title", cssCharacter)))

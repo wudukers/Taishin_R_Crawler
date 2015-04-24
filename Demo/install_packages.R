@@ -6,6 +6,7 @@ install.packages("RCurl")
 # Parsers
 install.packages("CSS")
 install.packages("XML")
+install.packages("rjson")
 
 
 # Little Framework
