@@ -13,6 +13,6 @@ install.packages("rvest")
 
 # others
 install.packages("gdata")
-
+install.packages("stringr")
 
 
