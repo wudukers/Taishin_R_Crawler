@@ -25,7 +25,11 @@ github:
   <font color="green">Week 1</font>
 </h3>
 <h3>
-  <font color=#CCCCA3>Chia-Chi Chang</font>
+  <font color=#CCCCA3>Agilearning.IO</font>
+</h3>
+
+<h3>
+  <font color=#CCCCA3>木刻思股份有限公司</font>
 </h3>
 
 --- &vertical

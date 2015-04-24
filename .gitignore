@@ -8,3 +8,5 @@
 .cache
 .nojekyll
 .Rhistory
+.Rproj.user
+*.Rproj

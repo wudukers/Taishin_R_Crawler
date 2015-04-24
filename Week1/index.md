@@ -25,7 +25,11 @@ github:
   <font color="green">Week 1</font>
 </h3>
 <h3>
-  <font color=#CCCCA3>Chia-Chi Chang</font>
+  <font color=#CCCCA3>Agilearning.IO</font>
+</h3>
+
+<h3>
+  <font color=#CCCCA3>木刻思股份有限公司</font>
 </h3>
 
 --- &vertical
@@ -77,9 +81,14 @@ install.packages("XML")
 ```
 
 ```
+## Installing package into '/home/c3h3/R/x86_64-unknown-linux-gnu-library/3.1'
+## (as 'lib' is unspecified)
+```
+
+```
 ## 
-## The downloaded binary packages are in
-## 	/var/folders/5c/0p5zr2_n4xvbt2j6hkqczhph0000gn/T//RtmpUI1qaF/downloaded_packages
+## The downloaded source packages are in
+## 	'/tmp/Rtmp3EKgdd/downloaded_packages'
 ```
 
 ***
@@ -139,18 +148,39 @@ MOPS_URL.TWSE_ALL <-
 
 web_page <- htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
 data <- readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+```
+
+```
+## Error in (function (classes, fdef, mtable) : unable to find an inherited method for function 'readHTMLTable' for signature '"NULL"'
+```
+
+```r
 names(data) <- 
   c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
     "Underwriter")
+```
+
+```
+## Error in names(data) <- c("Application Date", "Code", "Company", "Chairman", : names() applied to a non-vector
+```
+
+```r
 data <- data[-1,]
+```
+
+```
+## Error in data[-1, ]: object of type 'closure' is not subsettable
+```
+
+```r
 head(data, n=3)
 ```
 
 ```
-##   Application Date Code Company Chairman Amount of Capital Underwriter
-## 2       2015.03.03 6442  Ezconn                    600,000            
-## 3       2014.10.16 3416 WinMate                    610,664            
-## 4       2014.10.07 8341      SF                  1,000,000
+##                                                                      
+## 1 function (..., list = character(), package = NULL, lib.loc = NULL, 
+## 2     verbose = getOption("verbose"), envir = .GlobalEnv)            
+## 3 {
 ```
 
 <p class="fragment">
@@ -533,10 +563,31 @@ MOPS_URL.TWSE_ALL <-
 
 web_page <- htmlParse(MOPS_URL.TWSE_ALL,encoding="big5")
 data <- readHTMLTable(web_page, which=6, stringsAsFactors=F, header = T)
+```
+
+```
+## Error in (function (classes, fdef, mtable) : unable to find an inherited method for function 'readHTMLTable' for signature '"NULL"'
+```
+
+```r
 names(data) <- 
   c("Application Date", "Code", "Company", "Chairman","Amount of Capital",
     "Underwriter")
+```
+
+```
+## Error in names(data) <- c("Application Date", "Code", "Company", "Chairman", : names() applied to a non-vector
+```
+
+```r
 data <- data[-1,]
+```
+
+```
+## Error in data[-1, ]: object of type 'closure' is not subsettable
+```
+
+```r
 head(data, n=3)
 ```
 
@@ -568,17 +619,8 @@ head(data, n=3)
 
 ```
 ## [1] "I love R!"
-```
-
-```
 ## [1] TRUE
-```
-
-```
-## [1] 3.142
-```
-
-```
+## [1] 3.141593
 ## [1] 3
 ```
 
@@ -594,7 +636,8 @@ v2 <- c(2, 3)
 ```
 
 ```
-## Warning: 較長的物件長度並非較短物件長度的倍數
+## Warning in v1 + v2: longer object length is not a multiple of shorter
+## object length
 ```
 
 ```r
@@ -602,14 +645,12 @@ v2 <- c(2, 3)
 ```
 
 ```
-## Warning: 較長的物件長度並非較短物件長度的倍數
+## Warning in v1 * v2: longer object length is not a multiple of shorter
+## object length
 ```
 
 ```
 ## [1] 3 5 5
-```
-
-```
 ## [1] 2 6 6
 ```
 
@@ -700,6 +741,26 @@ c3h3
 
 ```r
 require(gdata)
+```
+
+```
+## Loading required package: gdata
+## gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+## 
+## gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+## 
+## Attaching package: 'gdata'
+## 
+## The following object is masked from 'package:stats':
+## 
+##     nobs
+## 
+## The following object is masked from 'package:utils':
+## 
+##     object.size
+```
+
+```r
 domestic_ins_company <- read.xls("http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls")
 (names(domestic_ins_company))
 head(domestic_ins_company, n=2)
@@ -707,10 +768,7 @@ head(domestic_ins_company, n=2)
 
 ```
 ## [1] "名.稱.與.所.在.地" "設立日期"          "董事長"           
-## [4] "總經理"            "電話.電傳"         "網址"
-```
-
-```
+## [4] "總經理"            "電話.電傳"         "網址"             
 ##                                                                                                                             名.稱.與.所.在.地
 ## 1                                                                                                                                            
 ## 2 臺灣產物保險股份有限公司\n100 台北市館前路49號 8、9樓\nTaiwan Fire & Marine Insurance Co., Ltd\n8-9 F1., No.49, Kuan Chien Road, Taipei 100
@@ -788,14 +846,11 @@ for (url in urls){
 ```
 
 ```
+## Error: could not find function "read.xls"
+```
+
+```
 ## [1] "Processing  http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20140822.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E7%94%A2%E9%9A%AA%E5%85%AC%E5%8F%B8_20141030.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E5%A3%BD%E9%9A%AA%E5%85%AC%E5%8F%B8_20150113.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E5%A3%BD%E9%9A%AA%E5%85%AC%E5%8F%B8_20140904.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E5%B0%88%E6%A5%AD%E5%86%8D%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B81001228.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E4%BF%9D%E9%9A%AA%E5%85%AC%E5%8F%B8%E5%9C%A8%E5%8F%B0%E8%81%AF%E7%B5%A1%E8%99%9520140703.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E6%9C%AC%E5%9C%8B%E4%BF%9D%E9%9A%AA%E7%9B%B8%E9%97%9C%E6%A9%9F%E6%A7%8B_20141227.xls"
-## [1] "Processing  http://www.tii.org.tw/images_P2/%E5%A4%96%E5%9C%8B%E9%87%91%E8%9E%8D%E4%BF%9D%E9%9A%AA%E7%9B%B8%E9%97%9C%E6%A9%9F%E6%A7%8B1010102.xls"
 ```
 
 ***
@@ -806,22 +861,7 @@ head(results[[1]], n = 3)
 ```
 
 ```
-##                                                                                                                             名.稱.與.所.在.地
-## 1                                                                                                                                            
-## 2 臺灣產物保險股份有限公司\n100 台北市館前路49號 8、9樓\nTaiwan Fire & Marine Insurance Co., Ltd\n8-9 F1., No.49, Kuan Chien Road, Taipei 100
-## 3                                                                                                                                            
-##   設立日期            董事長               總經理
-## 1                                                
-## 2 37/03/12 李泰宏\nSteve Lee 宋道平\nCharles Song
-## 3                                                
-##                                           電話.電傳
-## 1                                      與免付費電話
-## 2 Tel. (02)23821666\nFax. (02)23882555\n0809-068888
-## 3                                                  
-##                                                網址
-## 1                        (公司、資訊公開與重大訊息)
-## 2                           http://www.tfmi.com.tw/
-## 3 http://www.tfmi.com.tw/ec/news/news-public.screen
+## Error in results[[1]]: subscript out of bounds
 ```
 
 <div class='fragment'>
@@ -857,14 +897,8 @@ print(iris[c(2, 5), c(1, 3, 5)]) # data.frame 的 slicing 語法
 ```
 
 ```
-## [1] "v[3]" "3"
-```
-
-```
+## [1] "v[3]" "3"   
 ## [1] "list"      "character"
-```
-
-```
 ##   Sepal.Length Petal.Length Species
 ## 2          4.9          1.4  setosa
 ## 5          5.0          1.4  setosa
@@ -964,9 +998,6 @@ class(c3h3[["weight"]]) # 是個數字
 
 ```
 ## [1] "list"
-```
-
-```
 ## [1] "numeric"
 ```
 
@@ -980,18 +1011,7 @@ class(c3h3[["weight"]]) # 是個數字
 ```
 
 ```
-##                                                                                                                             名.稱.與.所.在.地
-## 1                                                                                                                                            
-## 2 臺灣產物保險股份有限公司\n100 台北市館前路49號 8、9樓\nTaiwan Fire & Marine Insurance Co., Ltd\n8-9 F1., No.49, Kuan Chien Road, Taipei 100
-##   設立日期            董事長               總經理
-## 1                                                
-## 2 37/03/12 李泰宏\nSteve Lee 宋道平\nCharles Song
-##                                           電話.電傳
-## 1                                      與免付費電話
-## 2 Tel. (02)23821666\nFax. (02)23882555\n0809-068888
-##                         網址
-## 1 (公司、資訊公開與重大訊息)
-## 2    http://www.tfmi.com.tw/
+## Error in results[[1]]: subscript out of bounds
 ```
 
 
